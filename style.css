@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+header {
+    position: relative;
+    display: flex;
+    height: 200px;
+    background-image: linear-gradient(#0070c0, #0070c0);
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 100%,
+      0 calc(100% - 4vw)
+    );
+    padding-left: 80px;
+    padding-top: 25px;
+  }
+
+  header h1{
+      font-size: 55px;
+      font-family: poppins;
+      color: #fff;
+      padding-left: 10px;
+      font-weight: 700;
+  }
+
+
+.header-title h1{
+    
+    /* padding-left: 90px; */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 28px;
+    line-height: 132.9%;
+    /* or 45px */
+    color: #000000;
+    position: absolute;
+    left: 90px;
+}
+
+.header-title h1 b{
+    
+    /* padding-left: 90px; */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 132.9%;
+    /* or 45px */
+    color: #000000;
+}
+.header-flex{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* border: 2px solid blue; */
+}
+.header-rules{
+    /* border: 2px solid red; */
+    width: 60%;
+}
+.header-rules h2{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 132.9%;
+    color: #0070C0;
+    margin-top:40px;
+    margin-left:90px;
+
+}
+.header-rules ul li{
+    
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 132.9%;
+    color: #6A6A6A;
+    margin-left:90px;
+
+
+  
+    /* background-color: #fff; */
+    /* color: #444; */
+}
+
+.rectangle-container{
+    position: absolute;
+    width: 20%;
+    height: 180px;
+    right:0;
+    /* top: 250px; */
+    /* background: red; */
+    border-radius: 29px;
+    z-index: 3;
+    /* border: 2px solid red; */
+}
+
+.back-rectangle-container{
+    position: absolute;
+    width: 368px;
+    height: 151px;
+    /* left: 1186px; */
+    right: 0px;
+    top: 0%;
+    z-index: 2;
+    background: #C4791F;
+    border-radius: 29px 0px 0px 29px;
+}
+.front-rectangle-container{
+    position: absolute;
+    width: 400px;
+    height: 151px;
+    /* left: 1152px; */
+    right: 0px;
+    top: 10%;
+    z-index: 3;
+    background: #FBA032;
+    border-radius: 29px 0px 0px 29px;
+
+    display: grid;
+    grid-gap: 0px;
+    grid-template-columns: [col1-start] 200px  [col2-start] 100px  [col3-start] 100px [col3-end];
+    grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
+}
+
+.box {
+    /* background-color: #444; */
+    /* color: #fff; */
+    /* border-radius: 5px; */
+    /* padding: 20px; */
+    /* padding-left: 10px; */
+    font-size: 150%;
+    /* border: 2px solid red; */
+    
+  }
+.grid-left-top{
+    grid-column: col1-start / col3-start;
+    grid-row: row1-start ;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    padding-top: 20px;
+    text-align: right;
+    line-height: 109.4%;
+}
+.grid-left-bottom{
+    grid-column: col1-start / col3-start;
+    grid-row: row2-start ;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+}
+.grid-right{
+    grid-column: col3-start ;
+    grid-row: row1-start / row2-end;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 132px;
+    line-height: 109.4%;
+    color: white;
+}
+
+
+.blank_line{
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: 63%;
+    z-index: 2;
+    background: #0070C0;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+.tablet{
+    position: absolute;
+    width: 1000px;
+    height: auto;
+    left: 131px;
+    top: 55%;
+
+    z-index: 5;
+    border-radius: .8em;
+    display: inline-block;
+    outline: 29px solid black;
+    box-shadow: 0 0 0 35px #ECECEC;
+    padding: 20px;
+    
+}
+
+.parent-label{
+    position: absolute;
+    
+    width: 100%;
+    height: 50px;
+    margin-left: 0px;
+    top: 74px;
+    z-index: 5;
+    background: #c9e0f1;
+    margin-left:-20px;
+}
+
+.parent-label h1{
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 109.4%;
+    /* or 27px */
+    color: #000000;
+    position: absolute;
+    top: 25%;
+    left: 80px;
+}
+
+form{
+    margin-top: 15%;
+}
+
+.radio-flex{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left:70px;
+}
+.radio-flex div{
+    width: 50%;
+    padding: 10px;
+}
+.radio-flex div label{
+    
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 109.4%;
+
+/* or 18px */
+}
+
+.custom-label
+.radio-parent-label{
+   
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 109.4%;
+    /* margin-left:70px; */
+    padding-bottom: 10px;
+}
+
+.radio-parent-label{
+    margin-left:70px;
+    
+}
+.parent-requirements-component{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left:70px;
+}
+
+.parent-requirements-component div{
+    width: 50%;
+    padding-top: 5%;
+    /* padding: 10px; */
+}
+.personal-details-view{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left:70px;
+}
+.personal-details-view div{
+    width: 50%;
+    padding: 10px;
+}
+
+.submit-label{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 109.4%;
+    margin-left:80px;
+    padding-top: 5%;
+
+    /* or 27px */
+    
+    color: #000000;
+}
+
+
+.submit-container div label{
+    
+    margin-top: 3%;
+    font-size:20px;
+    margin-left: 80px;
+    
+}
+
+.submit-container div textarea{
+    width: 50%;
+    height: 150px;
+    margin-top: 3%;
+    margin-left: 80px;   
+}
+
+#submit-button,
+#back-button
+{
+    /* position: absolute; */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    /* top: 98%; */
+    width: 159px;
+    height: 58px;
+    font-size: 30px;
+    margin-top:5%;
+}
+#back-button{
+    margin-left: 5%;
+}
+#submit-button{
+    margin-right: 5%;
+    float: right;
+    /* display: block; */
+}
