@@ -522,6 +522,69 @@ header h1{
 .parent-requirements-component div{
         width: 80%;
         padding-top: 5%;
-        /* padding: 10px; */
+    }
+
+    /* PERSONAL DETAILS */
+
+
+.personal-details-view{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left:5px;
+    }
+.personal-details-view div{
+    width: 50%;
+    padding-bottom: 1px;
+
+    }
+/* SUBMIT DETAILSS */
+.submit-label{
+ 
+        font-size: 25px;
+        margin-left:10px;
+    }
+    
+.submit-container{
+    margin-left: 10px;
+    }  
+    .submit-container div label{
+        
+        margin-top: 5%;
+        font-size:20px;
+        margin-left: 10px;
+        
+    }
+    
+    .submit-container div textarea{
+        width: 90%;
+        height: 100px;
+        margin-top: 3%;
+        margin-left: 10px;
+        
+    }
+.buttons{
+        margin-top: 10%;
+        padding-bottom: 10%;
+        /* margin-left: 0px; */
+        /* width: 90%; */
+    }
+    #submit-button,
+    #back-button
+    {
+        
+        width: 100px;
+        height: 50px;
+        font-size: 18px;
+        
+        /* margin-top:5%; */
+    
+    }
+    #back-button{
+        margin-left: 5%;
+    }
+    #submit-button{
+        margin-right: 5%;
+        float: right;
+        /* display: block; */
     }
 }
