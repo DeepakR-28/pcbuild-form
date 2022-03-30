@@ -208,6 +208,46 @@ header {
     background: #c9e0f1;
     /* border: 2px solid red; */
 }
+.stylus-full{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    transform: rotate(90deg);
+}
+.stylus-top{
+    
+    /* border: 2px solid red; */
+    border-radius: 50% 0% 0% 50%;
+    height: 50px;
+    width: 35px;
+background: linear-gradient(26.55deg, #808080 19.53%, #BABABA 42.44%, #CECECE 49.03%, #E9E9E9 59.57%, #F9F9F9 68.98%, #FFFFFF 76.21%, #FCFCFC 86.28%, #F2F2F2 94.13%, #E5E5E5 100.01%);
+
+}
+.stylus-mid{
+    margin-left: 0px;
+    /* border: 2px solid red; */
+    height: 50px;
+    width: 600px;
+    background: linear-gradient(0deg, #808080 -0.02%, #BABABA 28.46%, #CECECE 36.64%, #E9E9E9 49.74%, #F9F9F9 61.43%, #FFFFFF 70.42%, #FCFCFC 82.94%, #F2F2F2 92.7%, #E5E5E5 100%);
+    /* transform: rotate(90deg); */
+}
+.stylus-bottom{
+    /* border-image: linear-gradient(white, grey); */
+
+    border-bottom: 50px solid grey;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+    border-bottom-color: linear-gradient(0deg, #808080 -0.03%, #BABABA 28.45%, #CECECE 36.63%, #E9E9E9 49.73%, #F9F9F9 61.43%, #FFFFFF 70.42%, #FCFCFC 82.93%, #F2F2F2 92.7%, #E5E5E5 100%);
+    /* border-radius: 10% 10% 10% 10%; */
+	height: 0;
+    /* background: linear-gradient(0deg, #808080 -0.03%, #BABABA 28.45%, #CECECE 36.63%, #E9E9E9 49.73%, #F9F9F9 61.43%, #FFFFFF 70.42%, #FCFCFC 82.93%, #F2F2F2 92.7%, #E5E5E5 100%); */
+	width: 50px;
+    transform: rotate(90deg);
+    
+    
+
+}
+
 
 .parent-label h1{
 
@@ -449,7 +489,7 @@ header h1{
 .back-rectangle-container{
     /* position: absolute; */
     width: 100%;
-    height: 151px;
+    height: 140px;
     /* left: 1186px; */
     /* right: 0px; */
     margin-top: 5%;
@@ -460,7 +500,7 @@ header h1{
 .front-rectangle-container{
     /* position: absolute; */
     width: 100%;
-    height: 150px;
+    height: 120px;
     margin-top: 10%;
     border-radius: 0px 0px 0px 0px;
     display: grid;
@@ -469,13 +509,13 @@ header h1{
     grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
     }
 .grid-left-top{
-    font-size: 45px;
+    font-size: 40px;
     /* padding-top: 20px; */
     text-align: right;
     line-height: 109.4%;
     }
 .grid-right{
-    font-size: 132px;
+    font-size: 115px;
     line-height: 109.4%;
     color: white;
     }
@@ -565,8 +605,6 @@ header h1{
 .buttons{
         margin-top: 10%;
         padding-bottom: 10%;
-        /* margin-left: 0px; */
-        /* width: 90%; */
     }
     #submit-button,
     #back-button
