@@ -500,8 +500,9 @@ header h1{
 .front-rectangle-container{
     /* position: absolute; */
     width: 100%;
-    height: 100px;
+    height: 110px;
     margin-top: 8%;
+    
     border-radius: 0px 0px 0px 0px;
     display: grid;
     grid-gap: 0px;
@@ -510,7 +511,7 @@ header h1{
     }
 .grid-left-top{
     font-size: 35px;
-    /* padding-top: 20px; */
+    padding: 20px 0px;
     text-align: right;
     margin-right: 10px;
     line-height: 109.4%;
