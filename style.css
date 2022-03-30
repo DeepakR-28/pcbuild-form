@@ -538,8 +538,9 @@ header h1{
 .tablet{
         /* position: absolute; */
         position: inherit;
-        width: 100%;
-        margin-left: 0px;
+        width: 96%;
+        margin-left: 2%;
+        margin-right: 2%;
         margin-top:5%;
         border-radius: .8em;
         outline: 2px solid black;
@@ -555,6 +556,11 @@ header h1{
         flex-wrap: wrap;
         margin-left:30px;
     }
+.radio-flex div label{
+        
+        font-size: 15px;
+    }
+
     
 .parent-requirements-component{
         display: flex;
@@ -562,13 +568,17 @@ header h1{
         margin-left:30px;
     }
 .parent-requirements-component div{
-        width: 80%;
+        width: 90%;
         padding-top: 5%;
     }
 
     /* PERSONAL DETAILS */
 
-
+.form-select{
+    width: 100%;
+    float: right;
+    margin-right: 1%;
+}
 .personal-details-view{
     display: flex;
     flex-wrap: wrap;
