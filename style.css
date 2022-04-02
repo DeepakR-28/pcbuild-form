@@ -178,32 +178,36 @@ header {
 
 .tablet{
     /* position: absolute; */
-    position: inherit;
-    width: 1000px;
-    height: auto;
+    /* position: inherit; */
+    width: 1100px;
+    height: 1200px;
+    background-image: url("./tablet.png");    
     margin-left: 90px;
     margin-top:5%;
+    background-repeat: no-repeat;
+    /* background-size: auto; */
+    /* border: 2px solid red; */
 
-    /* z-index: 5; */
-    border-radius: .8em;
-    display: inline-block;
-    outline: 29px solid black;
-    box-shadow: 0 0 0 35px #ECECEC;
-    /* padding: 20px; */
+    padding: 20px;
     
+}
+.radio-container{
+    margin-left: 30px;
 }
 .radio-parent-label{
     font-size: 25px;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
+    
 }
 .parent-label{
     /* position: absolute; */
     
-    width: 100%;
+    width: 905px;
     height: 50px;
     margin-top: 10%;
+    margin-left: 56px;
     z-index: 5;
     background: #c9e0f1;
     /* border: 2px solid red; */
@@ -296,9 +300,14 @@ line-height: 109.4%;
     font-size: 16px;
     line-height: 109.4%;
     /* margin-left:70px; */
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
+.form-select{
+    width: 25%;
+    /* float: right; */
+    /* margin-right: 1%; */
+}
 .radio-parent-label{
     margin-left:70px;
     
@@ -306,12 +315,13 @@ line-height: 109.4%;
 .parent-requirements-component{
     display: flex;
     flex-wrap: wrap;
-    margin-left:70px;
+    margin-left:100px;
+    height: auto;
 }
 
 .parent-requirements-component div{
     width: 50%;
-    padding-top: 5%;
+    padding-top: 1%;
     /* padding: 10px; */
 }
 .personal-details-view{
@@ -354,8 +364,10 @@ line-height: 109.4%;
     margin-left: 80px;   
 }
 .buttons{
-    margin-top: 10%;
+    width: 90%;
+    margin-top: 5%;
     padding-bottom: 10%;
+    margin-left: 3%;
 }
 #submit-button,
 #back-button
