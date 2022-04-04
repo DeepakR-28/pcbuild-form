@@ -346,7 +346,8 @@ line-height: 109.4%;
 .personal-details-view{
     display: flex;
     flex-wrap: wrap;
-    margin-left:70px;
+    /* margin-left:70px; */
+    margin: 0px 40px;
 }
 .personal-details-view div{
     width: 50%;
@@ -359,7 +360,7 @@ line-height: 109.4%;
     font-weight: 800;
     font-size: 25px;
     line-height: 109.4%;
-    margin-left:80px;
+    margin-left:40px;
     padding-top: 5%;
 
     /* or 27px */
@@ -372,7 +373,7 @@ line-height: 109.4%;
     
     margin-top: 3%;
     font-size:20px;
-    margin-left: 80px;
+    margin-left: 40px;
     
 }
 
@@ -380,7 +381,7 @@ line-height: 109.4%;
     width: 50%;
     height: 150px;
     margin-top: 3%;
-    margin-left: 80px;   
+    margin-left: 40px;   
 }
 .buttons{
     margin-top: 10%;
