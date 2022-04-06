@@ -465,7 +465,15 @@ line-height: 109.4%;
  
 @media (max-width: 950px) { 
     /* IPAD | TABLETS */
-    
+.radio-parent-label{
+    margin-left: 50px;
+}  
+.radio-flex{
+    margin-left: 50px;
+    }
+.parent-requirements-component{
+    margin-left: 50px;
+}
 
 .radio-div{
     padding-right: 20px;
@@ -482,13 +490,6 @@ line-height: 109.4%;
     header h1{
         font-size: 38px;
     }
-    /* .header-flex{
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        border: 2px solid blue;
-
-    } */
 
     
 .header-title h1{
