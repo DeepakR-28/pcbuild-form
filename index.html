@@ -381,13 +381,21 @@
 							<!--Name-->
 
 							<div class="col-md-4">
+
 								<label for="validationCustom01" class="custom-form-label ">First name</label>
 								<input class="form-control" style="height: 50px;" type="text" maxlength="255"
 									name="Name_First" fieldType=7 placeholder="" required>
 							</div>
 							<div class="col-md-4">
 								<label for="validationCustom01" class="custom-form-label">Last name</label>
-								<input class="form-control " style="height: 50px;" maxlength="255" name="Name_Last"
+								<input class="form-control " style="height: 50px;" maxlength="255" name="Name_Last">								<label for="validationCustom01" class="form-label ">First name</label>
+								<input id = "firstname" class="form-control" style="height: 50px;" type="text" maxlength="255"
+									name="Name_First" fieldType=7 placeholder="" required>
+							</div>
+							<div class="col-md-4">
+								<label for="validationCustom01" class="form-label">Last name</label>
+								<input  id = "lastname"class="form-control " style="height: 50px;" maxlength="255" name="Name_Last"
+
 									fieldType=7 placeholder="" required>
 							</div>
 							<div class="col-md-4">
@@ -396,6 +404,7 @@
 								<input type="text" compname="PhoneNumber_countrycodeval"
 									name="PhoneNumber_countrycodeval" phoneFormat="1" maxlength="10"
 									id="international_PhoneNumber_countrycodeval" placeholder="" class="form-control"
+
 									style="height: 50px; display:none" value="+91" />
 								<input type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" phoneFormat="1"
 									isCountryCodeEnabled=true maxlength="20" value="" fieldType=11
@@ -410,6 +419,18 @@
 							<div class="col-md-4">
 								<label class="custom-form-label ">Pincode</label>
 								<input class="form-control p-3" style="height: 40px;" type="number" maxlength="255"
+									style="height: 50px; display:none" value = "+91" />
+								<input id = "phoneNumber" type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" phoneFormat="1" isCountryCodeEnabled=true
+        							maxlength="20" value="" fieldType=11 id="international_PhoneNumber_countrycode" placeholder="" class="form-control" style="height: 50px;" required />
+							</div>
+							<div class="col-md-4">
+								<label class="form-label ">Email</label>
+								<input id = "email" type="email" maxlength="255" name="Email" value="" fieldType=9 placeholder=""
+									class="form-control" style="height: 50px;" required />
+							</div>
+							<div class="col-md-4">
+								<label class="form-label ">Pincode</label>
+								<input id = "pincode" class="form-control p-3" style="height: 40px;" type="number" maxlength="255"
 									name="Address_ZipCode" placeholder="" />
 							</div>
 						</div>
