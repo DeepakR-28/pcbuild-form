@@ -1,7 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+
+/* MODAL */
+.custom-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .custom-modal-content{
+    background-color: #fefefe;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+    
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+
+/* ################### MODAL ################### */
+
+
 *{
     font-family: 'Poppins';
+    font-weight: 300;
 }
 .title{
     display: flex;
@@ -10,6 +60,35 @@
 .logo{
     width: 100px;
     height: 100px;
+}
+.custom-form-label{
+    font-weight: 300;
+}
+.custom-form-check-input{
+    width: 1em;
+    height: 1em;
+    margin-top: .25em;
+    vertical-align: top;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid rgba(0,0,0,.25);
+   
+    appearance: none;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+    border-radius: 50%;
+    float: left;
+margin-left: -1.5em;
+        
+}
+.custom-form-check-input:checked[type="radio"]{
+    background-color: white;
+border-color: #0d6efd;
+border: 5px solid #0d6efd
+
+
 }
 header {
     position: relative;
@@ -100,7 +179,7 @@ header {
     /* top: 250px; */
     /* background: red; */
     border-radius: 29px;
-    z-index: 3;
+    z-index: 0;
     /* border: 2px solid red; */
 }
 
@@ -323,7 +402,13 @@ line-height: 109.4%;
     padding-left: 0px;
     font-size: 16px;
 }
-
+.radio-div label{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 109.4%;
+}
 .personal-details-view{
     display: flex;
     flex-wrap: wrap;
@@ -421,6 +506,10 @@ line-height: 109.4%;
  }
  @media(max-width: 1200px){
      
+    .custom-modal-content{
+        top: 60%;
+        width: 30%;
+    }
 
     .tablet-container{
     
@@ -503,7 +592,9 @@ line-height: 109.4%;
 }
  @media (max-width: 765px) {
     /* PHONE  */
-
+    .custom-modal-content{
+        width: 75%;
+      }
     .radio-div{
         padding-right: 40px;
         font-size: 16px;
@@ -737,3 +828,5 @@ content: "\2022";
         /* display: block; */
     }
 }
+
+
