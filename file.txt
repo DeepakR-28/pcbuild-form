@@ -1,23 +1,12 @@
 Name - FirstEnter a value for this field.
-
 Name - LastEnter a value for this field.
-
 PhoneEnter a number for this field.
-
 EmailEnter a value for this field.
-
 Address - Postal / Pin CodeEnter a value for this field.
-
 Preferred Processor BrandChoose your option(s).
-
 No of Cores (Processor)Choose your option(s).
-
 Desired RAM configChoose your option(s).
-
 I need Graphics Card tooChoose your option(s).
-
 Hard Drive SizeChoose your option(s).
-
 Add RGB components?Choose your option(s).
-
 Load licensed copy of WindowsChoose your option(s).

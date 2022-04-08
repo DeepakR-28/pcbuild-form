@@ -11,7 +11,7 @@
 
 	<link rel="stylesheet" href="./style.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
@@ -209,7 +209,7 @@
 							<div class="pc-spec-parent-container">
 								<label class="custom-form-label  p-1">Daily usage expectancy</label>
 								<select class="form-select" id="form-select" name="Dropdown2">
-									<option selected="true" value="-Select-">-Select-</option>
+									<option selected="true" value="">-Select-</option>
 									<option value="2-4&#x20;hours">2-4 hours</option>
 									<option value="4-8&#x20;hours">4-8 hours</option>
 									<option value="10&#x2b;&#x20;hours">10&#x2b; hours</option>
@@ -219,8 +219,8 @@
 								<!--Dropdown-->
 								<label class="custom-form-label p-1">Preferred Processor Brand
 								</label>
-								<select class="form-select" id="processors" name="Dropdown">
-									<option selected="true" value="-Select-">-Select-</option>
+								<select class="form-select" id="processor" name="Dropdown">
+									<option selected="true" value="">-Select-</option>
 									<option value="AMD">AMD</option>
 									<option value="Intel">Intel</option>
 									<option value="AMD&#x20;or&#x20;Intel">AMD or Intel</option>
@@ -232,7 +232,7 @@
 									<em>*</em>
 								</label><br>
 								<!-- CONVERT TO RADIO -->
-								<div class="specs-radio-container">
+								<div class="specs-radio-container" id="cores" onchange="radioChanged(this)">
 									<div class="form-check radio-div">
 										<input type="radio" class="form-check-input p-1" id="Radio4_1" name="Radio4"
 											value="2">
@@ -251,7 +251,7 @@
 									</div>
 									<div class="form-check radio-div">
 										<input type="radio" class="form-check-input p-1" id="Radio4_4" name="Radio4"
-											value="&gt;&#x20;6">
+											value=">6">
 										<label for="Radio4_4">More than 6</label>
 									</div>
 								</div>
@@ -262,8 +262,8 @@
 								<label class="custom-form-label p-1">Desired RAM config
 									<em>*</em>
 								</label>
-								<select name="Dropdown3" class="form-select" id="form-select">
-									<option selected="true" value="-Select-">-Select-</option>
+								<select name="Dropdown3" class="form-select" id="ram">
+									<option selected="true" value="">-Select-</option>
 									<option value="4&#x20;GB">4 GB</option>
 									<option value="8&#x20;GB">8 GB</option>
 									<option value="16&#x20;GB">16 GB</option>
@@ -276,7 +276,7 @@
 								<!-- CHANGE TO RADIO -->
 								<label class="custom-form-label p-1">I need Graphics Card too
 								</label>
-								<div class="specs-radio-container">
+								<div class="specs-radio-container" id="graphicsCardRadio" onchange="radioChanged(this)">
 									<div class="form-check radio-div">
 										<input type="radio" class="form-check-input p-1" id="Radio1_1" name="Radio1"
 											value="Yes">
@@ -300,8 +300,8 @@
 								<label class="custom-form-label p-1">Hard Drive Size
 									<em>*</em>
 								</label>
-								<select class="form-select" id="form-select" name="Dropdown5">
-									<option selected="true" value="-Select-">-Select-</option>
+								<select class="form-select" id="hdd" name="Dropdown5">
+									<option selected="true" value="">-Select-</option>
 									<option value="500&#x20;GB">500 GB</option>
 									<option value="1&#x20;TB">1 TB</option>
 									<option value="2&#x20;TB">2 TB</option>
@@ -312,7 +312,7 @@
 								<label class="custom-form-label p-1">SSD Size (fast storage)
 								</label>
 								<select class="form-select" id="form-select" name="Dropdown4">
-									<option selected="true" value="-Select-">-Select-</option>
+									<option selected="true" value="">-Select-</option>
 									<option value="120&#x20;GB">120 GB</option>
 									<option value="256&#x20;GB">256 GB</option>
 									<option value="512&#x20;GB">512 GB</option>
@@ -325,7 +325,7 @@
 								<!--Dropdown-->
 								<!-- CHANGE TO RADIO -->
 								<label class="custom-form-label p-1">Add RGB components?</label>
-								<div class="specs-radio-container ">
+								<div class="specs-radio-container " id="rgb" onchange="radioChanged(this)">
 									<div class="form-check radio-div">
 										<input type="radio" class="form-check-input p-1 " id="Radio2_1" name="Radio2"
 											value="Sure,&#x20;go&#x20;ahead">
@@ -350,13 +350,19 @@
 								<label class="custom-form-label p-1">Load licensed copy of Windows 10
 									<em>*</em>
 								</label>
-								<select class="form-select" id="form-select" name="Dropdown6">
-									<option selected="true" value="-Select-">-Select-</option>
+								<select class="form-select" id="windowsCopy" name="Dropdown6">
+									<option selected="true" value="">-Select-</option>
 									<option value="Yes&#x20;-&#x20;Windows&#x20;10&#x20;Home">Yes - Windows 10 Home
 									</option>
 									<option value="Yes&#x20;-&#x20;Windows&#x20;10&#x20;Pro">Yes - Windows 10 Pro
 									</option>
-									<option value="No">No</option>
+									<option value="Yes&#x20;-&#x20;Windows&#x20;11&#x20;Home">Yes - Windows 11 Home
+									</option>
+									<option value="Yes&#x20;-&#x20;Windows&#x20;11&#x20;Pro">Yes - Windows 11 Pro
+									</option>
+									<option value="No&#x20;-&#x20;I&#x20;will&#x20;install&#x20;OS&#x20;myself">No - I
+										will install OS myself
+									</option>
 								</select>
 							</div>
 						</div>
@@ -381,22 +387,14 @@
 							<!--Name-->
 
 							<div class="col-md-4">
-
 								<label for="validationCustom01" class="custom-form-label ">First name</label>
-								<input class="form-control" style="height: 50px;" type="text" maxlength="255"
-									name="Name_First" fieldType=7 placeholder="" required>
+								<input id="firstname" class="form-control" style="height: 50px;" type="text"
+									maxlength="255" name="Name_First" fieldType=7 placeholder="" required>
 							</div>
 							<div class="col-md-4">
 								<label for="validationCustom01" class="custom-form-label">Last name</label>
-								<input class="form-control " style="height: 50px;" maxlength="255" name="Name_Last">								<label for="validationCustom01" class="form-label ">First name</label>
-								<input id = "firstname" class="form-control" style="height: 50px;" type="text" maxlength="255"
-									name="Name_First" fieldType=7 placeholder="" required>
-							</div>
-							<div class="col-md-4">
-								<label for="validationCustom01" class="form-label">Last name</label>
-								<input  id = "lastname"class="form-control " style="height: 50px;" maxlength="255" name="Name_Last"
-
-									fieldType=7 placeholder="" required>
+								<input id="lastname" class="form-control " style="height: 50px;" maxlength="255"
+									name="Name_Last" fieldType=7 placeholder="" required>
 							</div>
 							<div class="col-md-4">
 								<!--Phone-->
@@ -404,7 +402,6 @@
 								<input type="text" compname="PhoneNumber_countrycodeval"
 									name="PhoneNumber_countrycodeval" phoneFormat="1" maxlength="10"
 									id="international_PhoneNumber_countrycodeval" placeholder="" class="form-control"
-
 									style="height: 50px; display:none" value="+91" />
 								<input type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" phoneFormat="1"
 									isCountryCodeEnabled=true maxlength="20" value="" fieldType=11
@@ -413,27 +410,16 @@
 							</div>
 							<div class="col-md-4">
 								<label class="custom-form-label ">Email</label>
-								<input type="email" maxlength="255" name="Email" value="" fieldType=9 placeholder=""
-									class="form-control" style="height: 50px;" required />
+								<input id="email" type="email" maxlength="255" name="Email" value="" fieldType=9
+									placeholder="" class="form-control" style="height: 50px;" required />
 							</div>
 							<div class="col-md-4">
 								<label class="custom-form-label ">Pincode</label>
-								<input class="form-control p-3" style="height: 40px;" type="number" maxlength="255"
-									style="height: 50px; display:none" value = "+91" />
-								<input id = "phoneNumber" type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" phoneFormat="1" isCountryCodeEnabled=true
-        							maxlength="20" value="" fieldType=11 id="international_PhoneNumber_countrycode" placeholder="" class="form-control" style="height: 50px;" required />
-							</div>
-							<div class="col-md-4">
-								<label class="form-label ">Email</label>
-								<input id = "email" type="email" maxlength="255" name="Email" value="" fieldType=9 placeholder=""
-									class="form-control" style="height: 50px;" required />
-							</div>
-							<div class="col-md-4">
-								<label class="form-label ">Pincode</label>
-								<input id = "pincode" class="form-control p-3" style="height: 40px;" type="number" maxlength="255"
-									name="Address_ZipCode" placeholder="" />
+								<input id="pincode" class="form-control p-3" style="height: 40px;" type="number"
+									maxlength="255" name="Address_ZipCode" placeholder="" />
 							</div>
 						</div>
+
 
 						<!-- ################### -->
 						<!-- ################### -->
@@ -483,21 +469,20 @@
 		</div>
 	</div>
 
-<!-- The Modal -->
-<div id="myModal" class="custom-modal">
+	<!-- The Modal -->
+	<div id="myModal" class="custom-modal">
 
-  <!-- Modal content -->
-  <div class="custom-modal-content">
-    <span class="close">&times;</span>
-	<div class="spinner-border text-success" role="status" id = "form-submit-spinner">
+		<!-- Modal content -->
+		<div class="custom-modal-content">
+			<span class="close">&times;</span>
+			<div class="spinner-border text-success" role="status" id="form-submit-spinner">
+
+			</div>
+			<span id="form-submit-status">Loading...</span>
+
+		</div>
 
 	</div>
-	<span  id ="form-submit-status">Loading...</span>
-	
-  </div>
-
-</div>
-
 </body>
 
 <script>
@@ -505,7 +490,8 @@
 	var personal = document.getElementById("personal-details-view").children;
 	var pc = document.getElementById("pc-requirements-view").children;
 	var submit = document.getElementById("submit-container").children;
-
+	let missingValues = []
+	let missingValuesHtml
 
 	function hidePersonalDetails() {
 
@@ -567,25 +553,23 @@
 			submitButton.type = "submit"
 		}, 1000)
 		submitButton.innerHTML = "Submit"
-
-
 		backButton.style.backgroundColor = "#FBA032"
 	}
 
 	hidePersonalDetails()
 
-	function validation(){
+	function validation() {
 
 	}
 
 	$('#submit-button').on('click', function (e) {
 		console.log(e.target.type)
 		console.log(e.target.innerHTML)
-			e.preventDefault();
-			if(e.target.type == "button"){
-				hideSpecifications()
-			} else{
-				// $("#exampleModalCenter").modal();
+		e.preventDefault();
+		if (e.target.type == "button") {
+			hideSpecifications()
+		} else {
+			// $("#exampleModalCenter").modal();
 			// Get the modal
 			var modal = document.getElementById("myModal");
 			// $('#myModal').css("display", "block")
@@ -602,46 +586,112 @@
 			// }
 
 			// When the user clicks on <span> (x), close the modal
-			span.onclick = function() {
-			// $('#myModal').css("display", "none")
-			modal.style.display = "none";
+			span.onclick = function () {
+				// $('#myModal').css("display", "none")
+				
+				modal.style.display = "none";
 			}
 
 			// When the user clicks anywhere outside of the modal, close it
-			window.onclick = function(event) {
-			if (event.target == modal) {
-				$('#myModal').css("display", "none")
+			window.onclick = function (event) {
+				if (event.target == modal) {
+					$('#myModal').css("display", "none")
+				}
 			}
+			if (Check()) {
+				setTimeout(() => {
+					$("#form-submit-spinner").css("display", "none");
+					$("#form-submit-status").html("<h6>Thank you! Your request has been submitted. A TPS representative will reach out to you shortly.</h6><br>You will be now redirected to home page...");
+					console.log($("#submit-button"))
+					// $("#exampleModalCenter").modal('hide');
+					// $("#custom-pc-form").submit()
+				}, 2000)
+			} else {
+				// window.alert("PLEASE FILL ALL THE DETAILS")
+				$("#form-submit-spinner").css("display", "none");
+				modal.style.display = "block";
+				missingValuesHtml = '<ul>'
+				if(missingValues.length> 0){
+					missingValues.forEach(function(value) {
+						missingValuesHtml += '<li>'+ value + '</li>';
+						}); 
+				}
+				missingValuesHtml += '</ul>';
+				$("#form-submit-status").html(`<h6>PLEASE FILL ALL THE DETAILS</h6><br>${missingValuesHtml}`);
+				
 			}
 
-			setTimeout(()=>{
-				$("#form-submit-spinner").css("display","none"); 
-				$("#form-submit-status").html("<h6>Thank you! Your request has been submitted. A TPS representative will reach out to you shortly.</h6><br>You will be now redirected to home page...");
-				console.log($("#submit-button"))
-				// $("#exampleModalCenter").modal('hide');
-				$("#form-submit-spinner").css("display","grid"); 
-				$("#custom-pc-form").submit()
-			},2000)
 		}
-})
+	})
+	
+	function Check() {
+		missingValuesHtml = '<ul>'
+		
+		missingValues = []
+		let processor = $('#processor').val()
+		let ram = $('#ram').val()
+		let windows = $("#windowsCopy").val()
+		let hdd = $("#hdd").val()
+
+		let fname = $('#firstname').val()
+		let lname = $('#lastname').val()
+		let pincode = $('#pincode').val()
+		let phone = $('#international_PhoneNumber_countrycode').val()
+		let email = $('#email').val()
+		let graphics = $("input[name='Radio1']:checked").val();
+		let cores = $("input[name='Radio4']:checked").val();
+		let rgb = $("input[name='Radio2']:checked").val();
+
+		
+
+		if (processor == "") {
+			missingValues.push("Preferred Processor")
+		} if(ram == "") {
+			missingValues.push("Desired RAM")
+		} if(windows == "" ){
+			missingValues.push("COPY OF Windows")
+		} if(hdd == "" ){
+			missingValues.push("Hard Disk Size")
+		
+		} if(fname == ""){
+			missingValues.push("First Name")
+		
+		} if(lname == ""){
+			missingValues.push("Last Name")
+		
+		} if(pincode == ""){
+			missingValues.push("Pincode")
+		
+		} if(phone == ""){
+			missingValues.push("Phone Number")
+		
+		} if(email == ""){
+			missingValues.push("Email")
+		
+		} if(graphics == undefined){
+			missingValues.push("Graphics Card")
+		
+		} if(cores == undefined){
+			missingValues.push("CPU Cores")
+		
+		} if(rgb == ""){
+			missingValues.push("RGP Components")
+		}
+
+		if (processor == "" || ram == "" || windows == "" || hdd == "" || fname == "" || lname == "" || pincode == "" || phone == "" || email == "" || graphics == undefined || cores == undefined || rgb == "") {
+			console.log(false)
+			return false
+		} else {
+			console.log(true)
+			$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner">
+
+</div>
+<span id="form-submit-status">Loading...</span>`);
+			return true
+		}
 
 
-function Check(frm) {
-	let fname = $('#firstname')
-	let lname = $('#lastname')
-	let phone = $('#phoneNumber')
-	let email = $('#email')
-	let pincode = $('#pincode')
-	let processor = $('#processors')
-	// let name = $('#')
-	// let name = $('#')
-	// let name = $('#')
-	// let name = $('#')
-	// let name = $('#')
-	// let name = $('#')
-  return processor.val()
-}
-console.log(Check())
+	}
 </script>
 
 </html>
