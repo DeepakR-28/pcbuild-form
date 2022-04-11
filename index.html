@@ -128,11 +128,17 @@
 					<!-- PARENT CONTAINER -->
 					<div id="pc-requirements-view">
 						<!-- PC REQUIREMENTS CONTAINER -->
+						<div class="col-md-4">
+							<label for="validationCustom01" class="radio-parent-label">Number of PCs required</label>
+							<div><input id="count" class="form-control radio-parent-label" style="height: 40px;"type="text" name="Number" value="" maxlength="18" placeholder="" fieldType=7 placeholder="" required></div>
+							
+							<br>
+						</div>
 						<div class="radio-container">
 
 							<!--Radio-->
-							<label class="radio-parent-label custom-form-label">Primary Purpose of PC</label>
-							<div class="radio-flex">
+							<label class="radio-parent-label custom-form-label">Primary Purpose of PC<em style="color:red;">*</em></label>
+							<div class="radio-flex" id = "purpose">
 
 								<div class="form-check">
 
@@ -217,7 +223,7 @@
 							</div>
 							<div class="pc-spec-parent-container">
 								<!--Dropdown-->
-								<label class="custom-form-label p-1">Preferred Processor Brand
+								<label class="custom-form-label p-1">Preferred Processor Brand<em style="color:red;">*</em>
 								</label>
 								<select class="form-select" id="processor" name="Dropdown">
 									<option selected="true" value="">-Select-</option>
@@ -228,11 +234,11 @@
 							</div>
 
 							<div class="pc-spec-parent-container">
-								<label class="custom-form-label p-1">No of Cores (Processor)
-									<em>*</em>
+								<label class="custom-form-label p-1">No of Cores (Processor)<em style="color:red;">*</em>
+									
 								</label><br>
 								<!-- CONVERT TO RADIO -->
-								<div class="specs-radio-container" id="cores" onchange="radioChanged(this)">
+								<div class="specs-radio-container" id="cores" >
 									<div class="form-check radio-div">
 										<input type="radio" class="form-check-input p-1" id="Radio4_1" name="Radio4"
 											value="2">
@@ -259,8 +265,8 @@
 							</div>
 							<div class="pc-spec-parent-container">
 								<!--Dropdown-->
-								<label class="custom-form-label p-1">Desired RAM config
-									<em>*</em>
+								<label class="custom-form-label p-1">Desired RAM config<em style="color:red;">*</em>
+									
 								</label>
 								<select name="Dropdown3" class="form-select" id="ram">
 									<option selected="true" value="">-Select-</option>
@@ -274,9 +280,9 @@
 							<div class="pc-spec-parent-container">
 								<!--Dropdown-->
 								<!-- CHANGE TO RADIO -->
-								<label class="custom-form-label p-1">I need Graphics Card too
+								<label class="custom-form-label p-1">I need Graphics Card too<em style="color:red;">*</em>
 								</label>
-								<div class="specs-radio-container" id="graphicsCardRadio" onchange="radioChanged(this)">
+								<div class="specs-radio-container" id="graphicsCardRadio" >
 									<div class="form-check radio-div">
 										<input type="radio" class="form-check-input p-1" id="Radio1_1" name="Radio1"
 											value="Yes">
@@ -297,8 +303,8 @@
 							</div>
 							<div class="pc-spec-parent-container">
 								<!--Dropdown-->
-								<label class="custom-form-label p-1">Hard Drive Size
-									<em>*</em>
+								<label class="custom-form-label p-1">Hard Drive Size<em style="color:red;">*</em>
+									
 								</label>
 								<select class="form-select" id="hdd" name="Dropdown5">
 									<option selected="true" value="">-Select-</option>
@@ -325,7 +331,7 @@
 								<!--Dropdown-->
 								<!-- CHANGE TO RADIO -->
 								<label class="custom-form-label p-1">Add RGB components?</label>
-								<div class="specs-radio-container " id="rgb" onchange="radioChanged(this)">
+								<div class="specs-radio-container " id="rgb" >
 									<div class="form-check radio-div">
 										<input type="radio" class="form-check-input p-1 " id="Radio2_1" name="Radio2"
 											value="Sure,&#x20;go&#x20;ahead">
@@ -344,11 +350,24 @@
 								</div>
 
 							</div>
+							<div class="pc-spec-parent-container">
+								<label class="custom-form-label p-1">Select you budget (per PC, in INR) 
+									
+								</label>
+								<select class="form-select" id="budget" name="Dropdown1">
+									<option selected="true" value="">-Select-</option>
+									<option value="30,000&#x20;to&#x20;40,000">30,000 to 40,000</option>
+									<option value="40,000&#x20;to&#x20;60,000">40,000 to 60,000</option>
+									<option value="60,000&#x20;to&#x20;1,00,000">60,000 to 1,00,000</option>
+									<option value="1,00,000&#x20;to&#x20;1,50,000">1,00,000 to 1,50,000</option>
+									<option value="1,50,000&#x2b;">1,50,000&#x2b;</option>
+								</select>
+							</div>
 
 							<div class="pc-spec-parent-container">
 								<!--Dropdown-->
 								<label class="custom-form-label p-1">Load licensed copy of Windows 10
-									<em>*</em>
+									
 								</label>
 								<select class="form-select" id="windowsCopy" name="Dropdown6">
 									<option selected="true" value="">-Select-</option>
@@ -387,7 +406,7 @@
 							<!--Name-->
 
 							<div class="col-md-4">
-								<label for="validationCustom01" class="custom-form-label ">First name</label>
+								<label for="validationCustom01" class="custom-form-label ">First name<em style="color:red;">*</em></label>
 								<input id="firstname" class="form-control" style="height: 50px;" type="text"
 									maxlength="255" name="Name_First" fieldType=7 placeholder="" required>
 							</div>
@@ -398,7 +417,7 @@
 							</div>
 							<div class="col-md-4">
 								<!--Phone-->
-								<label for="validationCustom01" class="custom-form-label">Phone</label>
+								<label for="validationCustom01" class="custom-form-label">Phone<em style="color:red;">*</em></label>
 								<input type="text" compname="PhoneNumber_countrycodeval"
 									name="PhoneNumber_countrycodeval" phoneFormat="1" maxlength="10"
 									id="international_PhoneNumber_countrycodeval" placeholder="" class="form-control"
@@ -409,12 +428,12 @@
 									style="height: 50px;" required />
 							</div>
 							<div class="col-md-4">
-								<label class="custom-form-label ">Email</label>
+								<label class="custom-form-label ">Email<em style="color:red;">*</em></label>
 								<input id="email" type="email" maxlength="255" name="Email" value="" fieldType=9
 									placeholder="" class="form-control" style="height: 50px;" required />
 							</div>
 							<div class="col-md-4">
-								<label class="custom-form-label ">Pincode</label>
+								<label class="custom-form-label ">Pincode<em style="color:red;">*</em></label>
 								<input id="pincode" class="form-control p-3" style="height: 40px;" type="number"
 									maxlength="255" name="Address_ZipCode" placeholder="" />
 							</div>
@@ -461,9 +480,6 @@
 					</div>
 
 			</div>
-
-
-
 			</form>
 
 		</div>
@@ -491,7 +507,8 @@
 	var pc = document.getElementById("pc-requirements-view").children;
 	var submit = document.getElementById("submit-container").children;
 	let missingValues = []
-	let missingValuesHtml
+	let missingValuesHtml;
+	let flag = false
 
 	function hidePersonalDetails() {
 
@@ -526,7 +543,7 @@
 		for (i = 0; i < pc.length; i++) {
 			pc[i].style.display = "none";
 			personal[i].style.display = "";
-			submit[i].style.display = "";
+			// submit[i].style.display = "";
 		}
 
 
@@ -549,9 +566,10 @@
 		document.getElementById("parent-label-title").innerHTML = "Personal Details"
 		let submitButton = document.getElementById("submit-button")
 		let backButton = document.getElementById("back-button")
-		setTimeout(() => {
-			submitButton.type = "submit"
-		}, 1000)
+		// setTimeout(() => {
+			
+		// }, 1000)
+		submitButton.type = "submit"
 		submitButton.innerHTML = "Submit"
 		backButton.style.backgroundColor = "#FBA032"
 	}
@@ -563,34 +581,42 @@
 	}
 
 	$('#submit-button').on('click', function (e) {
-		console.log(e.target.type)
-		console.log(e.target.innerHTML)
+		var modal = document.getElementById("myModal");
+		var btn = document.getElementById("myBtn");
+
+			
+		var span = document.getElementsByClassName("close")[0];
+
+		span.onclick = function () {
+			// $('#myModal').css("display", "none")
+			
+			modal.style.display = "none";
+		}
 		e.preventDefault();
 		if (e.target.type == "button") {
-			hideSpecifications()
-		} else {
-			// $("#exampleModalCenter").modal();
-			// Get the modal
-			var modal = document.getElementById("myModal");
-			// $('#myModal').css("display", "block")
-			modal.style.display = "block";
-			// Get the button that opens the modal
-			var btn = document.getElementById("myBtn");
-
-			// Get the <span> element that closes the modal
-			var span = document.getElementsByClassName("close")[0];
-
-			// When the user clicks the button, open the modal 
-			// btn.onclick = function() {
-			// modal.style.display = "block";
-			// }
-
-			// When the user clicks on <span> (x), close the modal
-			span.onclick = function () {
-				// $('#myModal').css("display", "none")
+			if(validateFirstPage()){
+				hideSpecifications()
+			} else{
+				$("#form-submit-spinner").css("display", "none");
+				modal.style.display = "block";
+				missingValuesHtml = '<ul>'
+				if(missingValues.length> 0){
+					missingValues.forEach(function(value) {
+						missingValuesHtml += '<li>'+ value + '</li>';
+						}); 
+				}
+				missingValuesHtml += '</ul>';
+				$("#form-submit-status").html(`<h6>PLEASE FILL ALL THE DETAILS</h6><br>${missingValuesHtml}`);
 				
-				modal.style.display = "none";
 			}
+			
+		} else {
+			
+			
+			
+			modal.style.display = "block";
+			
+			
 
 			// When the user clicks anywhere outside of the modal, close it
 			window.onclick = function (event) {
@@ -625,73 +651,127 @@
 	})
 	
 	function Check() {
+
+		missingValuesHtml = '<ul>'
+		
+		missingValues = []	
+		return validateSecondPage()
+
+	}
+
+	function validateFirstPage(){
+
+		
 		missingValuesHtml = '<ul>'
 		
 		missingValues = []
+		
+
 		let processor = $('#processor').val()
 		let ram = $('#ram').val()
-		let windows = $("#windowsCopy").val()
 		let hdd = $("#hdd").val()
 
-		let fname = $('#firstname').val()
-		let lname = $('#lastname').val()
-		let pincode = $('#pincode').val()
-		let phone = $('#international_PhoneNumber_countrycode').val()
-		let email = $('#email').val()
 		let graphics = $("input[name='Radio1']:checked").val();
 		let cores = $("input[name='Radio4']:checked").val();
-		let rgb = $("input[name='Radio2']:checked").val();
+		let purpose = $("input[name='Radio']:checked").val();
 
-		
 
 		if (processor == "") {
 			missingValues.push("Preferred Processor")
 		} if(ram == "") {
 			missingValues.push("Desired RAM")
-		} if(windows == "" ){
-			missingValues.push("COPY OF Windows")
+		} if(purpose == undefined ){
+			missingValues.push("Primary Purpose")
 		} if(hdd == "" ){
 			missingValues.push("Hard Disk Size")
-		
-		} if(fname == ""){
-			missingValues.push("First Name")
-		
-		} if(lname == ""){
-			missingValues.push("Last Name")
-		
-		} if(pincode == ""){
-			missingValues.push("Pincode")
-		
-		} if(phone == ""){
-			missingValues.push("Phone Number")
-		
-		} if(email == ""){
-			missingValues.push("Email")
-		
 		} if(graphics == undefined){
 			missingValues.push("Graphics Card")
-		
 		} if(cores == undefined){
 			missingValues.push("CPU Cores")
-		
-		} if(rgb == ""){
-			missingValues.push("RGP Components")
-		}
-
-		if (processor == "" || ram == "" || windows == "" || hdd == "" || fname == "" || lname == "" || pincode == "" || phone == "" || email == "" || graphics == undefined || cores == undefined || rgb == "") {
-			console.log(false)
+		} 
+	
+		if (processor == "" || ram == "" || purpose == undefined || hdd == "" || graphics == undefined || cores == undefined) {	
+			flag = true
 			return false
 		} else {
-			console.log(true)
-			$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner">
+			// missingValues = []
+			if(flag){
+				$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner"></div>
+												<span id="form-submit-status">Loading...</span>`);
+			}
+			return true
+		}
+	}
+	function validateSecondPage(){
 
-</div>
-<span id="form-submit-status">Loading...</span>`);
+		let fname = $('#firstname').val()
+		let pincode = $('#pincode').val()
+		let phone = $('#international_PhoneNumber_countrycode').val()
+		let email = $('#email').val()
+		// pincode = toString(pincode)
+		console.log(typeof pincode)
+		if(fname == ""){
+			missingValues.push("First Name")
+		
+		} if(pincode == "" || !validatePincode(pincode)){
+			missingValues.push("Pincode")
+		
+		} if(phone == "" || !validatePhone(phone)){
+			missingValues.push("Valid Phone Number")
+		
+		} if(email == "" || !ValidateEmail(email)){
+			missingValues.push("Valid Email")
+		}
+
+	
+		if (fname == "" || pincode == "" || phone == "" || email == ""|| !ValidateEmail(email) || !validatePhone(phone) || !validatePincode(pincode)) {
+			
+			flag = true
+			return false
+		} else {
+			// missingValues = []
+			if(flag){
+				$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner"></div>
+												<span id="form-submit-status">Loading...</span>`);
+			}
 			return true
 		}
 
-
 	}
+
+	function ValidateEmail(input) {
+	var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+	if (input.match(validRegex)) {
+
+		console.log("not valid")
+
+	return true;
+	} else {
+		console.log("Valid")
+		// alert("Invalid email address!");
+		// document.form1.text1.focus();
+	return false;
+
+}
+}
+	function validatePhone(input){
+
+		// let validPhoneRegex = /^[6-9]\d{9}$/
+
+		// if (input.match(validPhoneRegex)) {
+		// return true;
+		// } else {
+		// return false;
+		// }
+		return true
+	}
+	function validatePincode(input){
+		console.log(input)
+		if(input.length != 6){
+			return false
+		} else return true
+	}
+
 </script>
 
 </html>
