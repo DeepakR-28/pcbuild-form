@@ -17,7 +17,6 @@
 	<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 
 
-
 </head>
 
 <body>
@@ -509,7 +508,7 @@
 	let missingValues = []
 	let missingValuesHtml;
 	let flag = false
-
+	let processor, ram, hdd, graphics, cores, purpose, fname, pincode, phone, email;
 	function hidePersonalDetails() {
 
 
@@ -575,10 +574,34 @@
 	}
 
 	hidePersonalDetails()
-
-	function validation() {
-
+	/* Instead of multiple if else conditions we can create a hashmap and loop over the the values 
+		where the format is
+		{
+			id : "Error Message for that Id"
+		}
+	*/
+	let mandatoryTextFieldsHashmap = {
+		firstpage : {
+			processor: "Preferred Processor",
+			ram: "Desired Ram",
+			hdd: "Hard Drive Size",
+		},
+		secondPage : {
+			firstname: "Valid First Name",
+			pincode: "Valid Pincode",
+			international_PhoneNumber_countrycode: "Valid Phone Number",
+			email: "Valid Email Id"
+		}
 	}
+	let mandatoryRadioButtonHashMap = {
+		firstpage : {
+		Radio: "Primary Purpose of PC"  ,
+		Radio1: "Graphics Card" ,
+		Radio4: "No of Cores (Processor)"
+		},
+		secondPage : {}
+	}
+	
 
 	$('#submit-button').on('click', function (e) {
 		var modal = document.getElementById("myModal");
@@ -600,7 +623,8 @@
 				$("#form-submit-spinner").css("display", "none");
 				modal.style.display = "block";
 				missingValuesHtml = '<ul>'
-				if(missingValues.length> 0){
+				if(missingValues
+				.length> 0){
 					missingValues.forEach(function(value) {
 						missingValuesHtml += '<li>'+ value + '</li>';
 						}); 
@@ -611,13 +635,8 @@
 			}
 			
 		} else {
-			
-			
-			
-			modal.style.display = "block";
-			
-			
 
+			modal.style.display = "block";
 			// When the user clicks anywhere outside of the modal, close it
 			window.onclick = function (event) {
 				if (event.target == modal) {
@@ -660,36 +679,66 @@
 	}
 
 	function validateFirstPage(){
-
+		flag = false
 		
 		missingValuesHtml = '<ul>'
 		
 		missingValues = []
 		
-
-		let processor = $('#processor').val()
-		let ram = $('#ram').val()
-		let hdd = $("#hdd").val()
-
-		let graphics = $("input[name='Radio1']:checked").val();
-		let cores = $("input[name='Radio4']:checked").val();
-		let purpose = $("input[name='Radio']:checked").val();
+		Object.keys(mandatoryTextFieldsHashmap.firstpage).map(elementId =>{
+			if ($(`#${elementId}`).val() == "") {
+				flag = true
+				$(`#${elementId}`).css("border","1px solid red")
+				missingValues.push(mandatoryTextFieldsHashmap.firstpage[elementId])
+		} 
+		
+		})
+		Object.keys(mandatoryRadioButtonHashMap.firstpage).map(radioButtonName =>{
+			console.log($(`input[name=${radioButtonName}]`).parent())
+			
+			if ($(`input[name=${radioButtonName}]:checked`).val() == undefined) {
+				flag = true
+				$(`input[name=${radioButtonName}]`).parent().parent().siblings().css("color","red")
+				missingValues.push(mandatoryRadioButtonHashMap.firstpage[radioButtonName])
+		} 
+		})
+		if(flag){
+			return false
+		} else{
+			$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner"></div>
+												<span id="form-submit-status">Loading...</span>`);
+			return true
+		}
+/*
+		processor = $('#processor').val()
+		ram = $('#ram').val()
+		hdd = $("#hdd").val()
+		graphics = $("input[name='Radio1']:checked").val();
+		cores = $("input[name='Radio4']:checked").val();
+		purpose = $("input[name='Radio']:checked").val();
 
 
 		if (processor == "") {
+			$("#processor").css("border","1px solid red")
 			missingValues.push("Preferred Processor")
 		} if(ram == "") {
+			$("#ram").css("border","1px solid red")
 			missingValues.push("Desired RAM")
-		} if(purpose == undefined ){
-			missingValues.push("Primary Purpose")
 		} if(hdd == "" ){
+			$("#hdd").css("border","1px solid red")
 			missingValues.push("Hard Disk Size")
+		} 
+		if(purpose == undefined ){
+			$("#purpose").siblings().css("color","red")
+			missingValues.push("Primary Purpose")
 		} if(graphics == undefined){
+			$("#graphicsCardRadio").siblings().css("color","red")
 			missingValues.push("Graphics Card")
 		} if(cores == undefined){
+			$("#cores").siblings().css("color","red")
 			missingValues.push("CPU Cores")
 		} 
-	
+		
 		if (processor == "" || ram == "" || purpose == undefined || hdd == "" || graphics == undefined || cores == undefined) {	
 			flag = true
 			return false
@@ -701,39 +750,54 @@
 			}
 			return true
 		}
+*/
+
 	}
 	function validateSecondPage(){
 
-		let fname = $('#firstname').val()
-		let pincode = $('#pincode').val()
-		let phone = $('#international_PhoneNumber_countrycode').val()
-		let email = $('#email').val()
+		flag = false // resetting value on second onsubmit
+
+		fname = $('#firstname').val()
+		pincode = $('#pincode').val()
+		phone = $('#international_PhoneNumber_countrycode').val()
+		email = $('#email').val()
 		// pincode = toString(pincode)
 		console.log(typeof pincode)
-		if(fname == ""){
-			missingValues.push("First Name")
-		
-		} if(pincode == "" || !validatePincode(pincode)){
-			missingValues.push("Pincode")
-		
-		} if(phone == "" || !validatePhone(phone)){
-			missingValues.push("Valid Phone Number")
-		
-		} if(email == "" || !ValidateEmail(email)){
-			missingValues.push("Valid Email")
-		}
 
-	
-		if (fname == "" || pincode == "" || phone == "" || email == ""|| !ValidateEmail(email) || !validatePhone(phone) || !validatePincode(pincode)) {
+
+		Object.keys(mandatoryTextFieldsHashmap.secondPage).map(elementId =>{
+			if ($(`#${elementId}`).val() == "") {
+				flag = true
+				$(`#${elementId}`).css("border","1px solid red")
+				missingValues.push(mandatoryTextFieldsHashmap.secondPage[elementId])
 			
-			flag = true
-			return false
-		} else {
-			// missingValues = []
-			if(flag){
-				$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner"></div>
-												<span id="form-submit-status">Loading...</span>`);
+		} 
+			
+		})
+
+		if(!ValidateEmail(email) || !validatePhone(phone) || !validatePincode(pincode)){
+				
+				flag = true
 			}
+	
+		// if (fname == "" || pincode == "" || phone == "" || email == ""|| !ValidateEmail(email) || !validatePhone(phone) || !validatePincode(pincode)) {
+			
+		// 	flag = true
+		// 	return false
+		// } else {
+		// 	// missingValues = []
+		// 	if(flag){
+		// 		$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner"></div>
+		// 										<span id="form-submit-status">Loading...</span>`);
+		// 	}
+		// 	return true
+		// }
+
+		if(flag){
+			return false
+		} else{
+			$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner"></div>
+		 										<span id="form-submit-status">Loading...</span>`);
 			return true
 		}
 
@@ -742,12 +806,12 @@
 	function ValidateEmail(input) {
 	var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 	if (input.match(validRegex)) {
-
-		console.log("not valid")
-
+		$("#email").css("border","0px")
 	return true;
 	} else {
 		console.log("Valid")
+		missingValues.push("Please Enter a Valid Email")
+		$("#email").css("border","1px solid red")
 		// alert("Invalid email address!");
 		// document.form1.text1.focus();
 	return false;
@@ -768,10 +832,51 @@
 	function validatePincode(input){
 		console.log(input)
 		if(input.length != 6){
+			$("#pincode").css("border","1px solid red")
 			return false
-		} else return true
+		} else{
+			$("#pincode").css("border","0px")
+			 return true
+			}
 	}
 
+	// remove red border when content is changed 
+	$("#custom-pc-form").change(function(){
+		// first page
+		processor = $('#processor').val()
+		ram = $('#ram').val()
+		hdd = $("#hdd").val()
+		graphics = $("input[name='Radio1']:checked").val();
+		cores = $("input[name='Radio4']:checked").val();
+		purpose = $("input[name='Radio']:checked").val();
+		// second page 
+		fname = $('#firstname').val()
+		pincode = $('#pincode').val()
+		phone = $('#international_PhoneNumber_countrycode').val()
+		email = $('#email').val()
+		
+		if (processor != "") {
+			$("#processor").css("border","0px")
+		} if(ram != "") {
+			$("#ram").css("border","0px")
+		} if(hdd != "" ){
+			$("#hdd").css("border","0px")
+		} if(purpose != undefined ){
+			$("#purpose").siblings().css("color","black")
+		} if(graphics != undefined){
+			$("#graphicsCardRadio").siblings().css("color","black")	
+		} if(cores != undefined){
+			$("#cores").siblings().css("color","black")	
+		} if(fname != ""){
+			$("#firstname").css("border","0px")
+		} if(pincode != ""){
+			$("#pincode").css("border","0px")
+		} if(phone != ""){
+			$("#international_PhoneNumber_countrycode").css("border","0px")
+		} if(email != ""){
+			$("#email").css("border","0px")
+		}
+	}); 
 </script>
 
 </html>

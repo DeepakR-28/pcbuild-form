@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-select{
-    font-family: poppins;
-}
 
 /* MODAL */
 .custom-modal {
@@ -66,6 +63,7 @@ select{
 }
 .custom-form-label{
     font-weight: 300;
+  font-size:16px;
 }
 .custom-form-check-input{
     width: 1em;
@@ -93,6 +91,7 @@ border: 5px solid #0d6efd
 
 
 }
+
 header {
     position: relative;
     display: flex;
@@ -277,11 +276,11 @@ header {
     margin-right: 50%;
     
     margin-bottom: 20%; */
-    background-color: #f0f7fc;
+    /* background-color: #f0f7fc; */
     margin-left: 5.6%;
     margin-top: 10%;
     width: 993px;
-    /* height: 800px; */
+    height: 800px;
     
     
     /* width: 980px; */
@@ -309,6 +308,7 @@ header {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
+    text-transform:none;
 }
 .parent-label{
     height: 50px;
@@ -346,6 +346,7 @@ form{
     border:0px;
     outline:0px;
 }
+
 .radio-flex{
     display: flex;
     flex-wrap: wrap;
@@ -543,7 +544,7 @@ line-height: 109.4%;
         
         margin-top: 10%;
         width: auto;
-        /* height: 800px; */
+        height: auto;
         
         
         /* width: 980px; */
@@ -718,7 +719,7 @@ content: "\2022";
 .tablet-container{
         background-image:none;
         border: 2px solid transparent;
-        background-size: 1200px 1400px;
+        background-size: 1200px 1200px;
         width: 100%;
     }
 .tablet{
@@ -730,6 +731,8 @@ content: "\2022";
         outline:none;
         box-shadow: none;
         margin-left: 0px;
+  		height:auto;
+ 
         /* padding: 20px; */
     }
 
