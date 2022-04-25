@@ -90,12 +90,12 @@
 				</div>
 			</div>
 			<div class="header-rules">
-				<h2>Important</h2>
+				<h2 id ="aboutGoshawk" onclick="showGoshawkModal()">About GosHawk &#x1F6C8;</h2>
 				<ul>
-					<li>Please fill the form with the best information you have.</li>
-					<li>Our team contacts you back with the best deal.</li>
-					<li>All our PCs are engineered meticulously for high performance.</li>
-					<li>All our PCs come with minimum 2 years warranty & lifetime technical support.</li>
+					<li>BUILT FOR THE FUTURE</li>
+					<li>RELIABLE PERFORMANCE</li>
+					<li>MULTITASK YOUR WAY TO SUCCESS</li>
+					<li>QUALITY ASSURED</li>
 				</ul>
 			</div>
 		</div>
@@ -421,10 +421,11 @@
 									name="PhoneNumber_countrycodeval" phoneFormat="1" maxlength="10"
 									id="international_PhoneNumber_countrycodeval" placeholder="" class="form-control"
 									style="height: 50px; display:none" value="+91" />
-								<input type="text" compname="PhoneNumber" name="PhoneNumber_countrycode" phoneFormat="1"
-									isCountryCodeEnabled=true maxlength="20" value="" fieldType=11
+								<input type="number" compname="PhoneNumber" name="PhoneNumber_countrycode" phoneFormat="1"
+									isCountryCodeEnabled=true maxlength="10" value="" fieldType=11
 									id="international_PhoneNumber_countrycode" placeholder="" class="form-control"
-									style="height: 50px;" required />
+									style="height: 50px;" required  onkeypress="validateNumberFields(event)"/>
+									<!-- style="height: 50px;" required  onkeypress= "return event.charCode>=48 && event.charCode<=57 && event.target.value.length<11"/> -->
 							</div>
 							<div class="col-md-4">
 								<label class="custom-form-label ">Email<em style="color:red;">*</em></label>
@@ -434,7 +435,9 @@
 							<div class="col-md-4">
 								<label class="custom-form-label ">Pincode<em style="color:red;">*</em></label>
 								<input id="pincode" class="form-control p-3" style="height: 40px;" type="number"
-									maxlength="255" name="Address_ZipCode" placeholder="" />
+									 name="Address_ZipCode" placeholder="" pattern="\d*" oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+									 type = "number" maxlength="6" onkeypress="validateNumberFields(event)"/>
+									 <!-- name="Address_ZipCode" placeholder="" onkeypress= "return event.charCode>=48 && event.charCode<=57 && event.target.value.length<6"  /> -->
 							</div>
 						</div>
 
@@ -488,13 +491,85 @@
 	<div id="myModal" class="custom-modal">
 
 		<!-- Modal content -->
-		<div class="custom-modal-content">
+		<div class="custom-modal-content" id = "customModalContent">
 			<span class="close">&times;</span>
 			<div class="spinner-border text-success" role="status" id="form-submit-spinner">
-
 			</div>
-			<span id="form-submit-status">Loading...</span>
-
+			<span id="form-submit-status">Submitting...</span>
+		</div>
+		<div class="goshawk-modal-content">
+			<span class="close">&times;</span>
+			<div>
+				<span id="form-submit-status"></span>
+				<div>
+					<h4 class = "subtitle">BUILT FOR THE FUTURE</h4>
+					<div>
+						<p>
+							GOSHAWK offers readily upgradable memory, storage, graphics card, and power supply to keep up with your evolving needs. Customization is at the heart of Goshawk PC 
+						</p>
+					</div>
+				</div>
+				<div>
+					<h4 class = "subtitle">RELIABLE PERFORMANCE  </h4>
+					<div>
+						<p>
+							Snappier systems, reliable storage, and low footprint power consumptions. GOSHAWK won’t let you down. 
+						</p>
+					</div>
+				</div>
+				<div>
+					<h4 class = "subtitle">MULTITASK YOUR WAY TO SUCCESS</h4>
+					<div>
+						<p>
+							Get impressive boot times & performance for your day-to-day computing tasks with our GOSHAWK. 
+						</p>
+					</div>
+				</div>
+				<div>
+					<h4 class = "subtitle">UNMATCHED EFFICIENCY</h4>
+					<div>
+						<p>
+							GOSHAWK have Active Power Factor Correction that uses a specialized circuit to correct power factor, leading in increased overall efficiency output.
+						</p>
+					</div>
+				</div>
+				<div>
+					<h4 class = "subtitle">CRYSTAL CLEAR AUDIO</h4>
+					<div>
+						<p>
+							GOSHAWK uses industry’s leading audio codec along with AI noise cancellation software suit*, blocking all the environmental noise and disturbance. 
+						</p>
+					</div>
+				</div>
+				<div>
+					<h4 class = "subtitle">DESIGNED FOR HIGH-PERFORMANCE OVERCLOCKING</h4>
+					<div>
+						<p>
+							GOSHAWK design philosophy helps in managing heat and provides superior overclocking headroom. Each component is individually screened for peak performance.  
+						</p>
+					</div>
+				</div>
+				<div>
+					<h4 class = "subtitle">STRESS TESTED</h4>
+					<div>
+						<p>
+							We put each GOSHAWK through a battery of 90+ test to ensure you reliable PC and system stability. Your Goshawk has Multiple hardware safeguards for all-round protection.
+						</p>
+					</div>
+				</div>
+				<div>
+					<h4 class = "subtitle">QUALITY ASSURED</h4>
+					<div>
+						<p>
+							Our quality assurance specialists ensure that each GOSHAWK observes robust quality standards.  
+							*AI noise cancellation suit is available with premium GOSHAWK configurations.
+						</p>
+					</div>
+				</div>
+				
+				
+			</div>
+			
 		</div>
 
 	</div>
@@ -586,7 +661,7 @@
 			ram: "Desired Ram",
 			hdd: "Hard Drive Size",
 		},
-		secondPage : {
+		secondpage : {
 			firstname: "Valid First Name",
 			pincode: "Valid Pincode",
 			international_PhoneNumber_countrycode: "Valid Phone Number",
@@ -599,20 +674,14 @@
 		Radio1: "Graphics Card" ,
 		Radio4: "No of Cores (Processor)"
 		},
-		secondPage : {}
+		secondpage : {}
 	}
-	
-
 	$('#submit-button').on('click', function (e) {
 		var modal = document.getElementById("myModal");
 		var btn = document.getElementById("myBtn");
-
-			
 		var span = document.getElementsByClassName("close")[0];
-
 		span.onclick = function () {
 			// $('#myModal').css("display", "none")
-			
 			modal.style.display = "none";
 		}
 		e.preventDefault();
@@ -630,10 +699,8 @@
 						}); 
 				}
 				missingValuesHtml += '</ul>';
-				$("#form-submit-status").html(`<h6>PLEASE FILL ALL THE DETAILS</h6><br>${missingValuesHtml}`);
-				
+				$("#form-submit-status").html(`<h6>PLEASE FILL ALL THE DETAILS</h6><br>${missingValuesHtml}`);	
 			}
-			
 		} else {
 
 			modal.style.display = "block";
@@ -646,7 +713,7 @@
 			if (Check()) {
 				setTimeout(() => {
 					$("#form-submit-spinner").css("display", "none");
-					$("#form-submit-status").html("<h6>Thank you! Your request has been submitted. A TPS representative will reach out to you shortly.</h6><br>You will be now redirected to home page...");
+					$("#form-submit-status").html("<h6>Thank you! Your request has been submitted. We will reach out to you shortly.</h6><br>You will be now redirected to home page...");
 					console.log($("#submit-button"))
 					// $("#exampleModalCenter").modal('hide');
 					// $("#custom-pc-form").submit()
@@ -662,13 +729,11 @@
 						}); 
 				}
 				missingValuesHtml += '</ul>';
-				$("#form-submit-status").html(`<h6>PLEASE FILL ALL THE DETAILS</h6><br>${missingValuesHtml}`);
-				
+				$("#form-submit-status").html(`<h6>PLEASE FILL ALL THE DETAILS</h6><br>${missingValuesHtml}`);	
 			}
-
 		}
 	})
-	
+
 	function Check() {
 
 		missingValuesHtml = '<ul>'
@@ -678,6 +743,68 @@
 
 	}
 
+	function errorStyling(pageNumber, inputType, operation){
+
+		// This Function will either add a style or remove a style
+		/*
+		
+		IF ELSE LADDER SKELETON
+		if(operation == "addstyle"){
+			if(inputType == "text"){
+
+			} else {
+
+			}
+		} else { 
+			// removes style
+
+			if(inputType == "text"){
+
+			} else {
+
+			}
+		}
+		
+		*/
+		if(operation == "addErrorStyle"){
+			// Input will be either radio button or text(dropdown/text input)
+			if(inputType == "text"){
+				Object.keys(mandatoryTextFieldsHashmap[pageNumber]).map(elementId =>{
+					if ($(`#${elementId}`).val() == "") {
+						flag = true
+						$(`#${elementId}`).css("border","1px solid red")
+						missingValues.push(mandatoryTextFieldsHashmap[pageNumber][elementId])
+					} 
+				})
+			} else {
+				Object.keys(mandatoryRadioButtonHashMap.firstpage).map(radioButtonName =>{
+					if ($(`input[name=${radioButtonName}]:checked`).val() == undefined) {
+						flag = true
+						$(`input[name=${radioButtonName}]`).parent().parent().siblings().css("color","red")
+						missingValues.push(mandatoryRadioButtonHashMap[pageNumber][radioButtonName])
+					} 
+				})
+			}		
+		} else{
+
+			if(inputType == "text"){
+				Object.keys(mandatoryTextFieldsHashmap[pageNumber]).map(elementId =>{
+					if ($(`#${elementId}`).val() != "") {
+						$(`#${elementId}`).css("border","0px")
+					} 
+				})
+			} else{
+				Object.keys(mandatoryRadioButtonHashMap.firstpage).map(radioButtonName =>{
+					if ($(`input[name=${radioButtonName}]:checked`).val() != undefined) {
+						$(`input[name=${radioButtonName}]`).parent().parent().siblings().css("color","black")
+						missingValues.push(mandatoryRadioButtonHashMap[pageNumber][radioButtonName])
+					} 
+				})
+			}
+			console.log("Remove style")
+		}
+	}
+
 	function validateFirstPage(){
 		flag = false
 		
@@ -685,119 +812,38 @@
 		
 		missingValues = []
 		
-		Object.keys(mandatoryTextFieldsHashmap.firstpage).map(elementId =>{
-			if ($(`#${elementId}`).val() == "") {
-				flag = true
-				$(`#${elementId}`).css("border","1px solid red")
-				missingValues.push(mandatoryTextFieldsHashmap.firstpage[elementId])
-		} 
-		
-		})
-		Object.keys(mandatoryRadioButtonHashMap.firstpage).map(radioButtonName =>{
-			console.log($(`input[name=${radioButtonName}]`).parent())
-			
-			if ($(`input[name=${radioButtonName}]:checked`).val() == undefined) {
-				flag = true
-				$(`input[name=${radioButtonName}]`).parent().parent().siblings().css("color","red")
-				missingValues.push(mandatoryRadioButtonHashMap.firstpage[radioButtonName])
-		} 
-		})
+		errorStyling("firstpage", "text", "addErrorStyle")
+		errorStyling("firstpage", "radio", "addErrorStyle")
+
 		if(flag){
 			return false
 		} else{
-			$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner"></div>
-												<span id="form-submit-status">Loading...</span>`);
-			return true
-		}
-/*
-		processor = $('#processor').val()
-		ram = $('#ram').val()
-		hdd = $("#hdd").val()
-		graphics = $("input[name='Radio1']:checked").val();
-		cores = $("input[name='Radio4']:checked").val();
-		purpose = $("input[name='Radio']:checked").val();
-
-
-		if (processor == "") {
-			$("#processor").css("border","1px solid red")
-			missingValues.push("Preferred Processor")
-		} if(ram == "") {
-			$("#ram").css("border","1px solid red")
-			missingValues.push("Desired RAM")
-		} if(hdd == "" ){
-			$("#hdd").css("border","1px solid red")
-			missingValues.push("Hard Disk Size")
-		} 
-		if(purpose == undefined ){
-			$("#purpose").siblings().css("color","red")
-			missingValues.push("Primary Purpose")
-		} if(graphics == undefined){
-			$("#graphicsCardRadio").siblings().css("color","red")
-			missingValues.push("Graphics Card")
-		} if(cores == undefined){
-			$("#cores").siblings().css("color","red")
-			missingValues.push("CPU Cores")
-		} 
-		
-		if (processor == "" || ram == "" || purpose == undefined || hdd == "" || graphics == undefined || cores == undefined) {	
-			flag = true
-			return false
-		} else {
-			// missingValues = []
-			if(flag){
+			if($("#form-submit-status").text().trim() != "Submitting..."){
 				$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner"></div>
-												<span id="form-submit-status">Loading...</span>`);
+		 										<span id="form-submit-status">Submitting...</span>`);	
 			}
 			return true
 		}
-*/
 
 	}
 	function validateSecondPage(){
-
+		
 		flag = false // resetting value on second onsubmit
-
-		fname = $('#firstname').val()
-		pincode = $('#pincode').val()
-		phone = $('#international_PhoneNumber_countrycode').val()
-		email = $('#email').val()
-		// pincode = toString(pincode)
-		console.log(typeof pincode)
-
-
-		Object.keys(mandatoryTextFieldsHashmap.secondPage).map(elementId =>{
-			if ($(`#${elementId}`).val() == "") {
-				flag = true
-				$(`#${elementId}`).css("border","1px solid red")
-				missingValues.push(mandatoryTextFieldsHashmap.secondPage[elementId])
-			
-		} 
-			
-		})
-
-		if(!ValidateEmail(email) || !validatePhone(phone) || !validatePincode(pincode)){
-				
+		errorStyling("secondpage", "text", "addErrorStyle")
+		if(!ValidateEmail($("#email").val()) || !validatePhone($("#international_PhoneNumber_countrycode").val()) || !validatePincode($("#pincode").val())){	
 				flag = true
 			}
-	
-		// if (fname == "" || pincode == "" || phone == "" || email == ""|| !ValidateEmail(email) || !validatePhone(phone) || !validatePincode(pincode)) {
-			
-		// 	flag = true
-		// 	return false
-		// } else {
-		// 	// missingValues = []
-		// 	if(flag){
-		// 		$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner"></div>
-		// 										<span id="form-submit-status">Loading...</span>`);
-		// 	}
-		// 	return true
-		// }
-
+		console.log(flag)
 		if(flag){
 			return false
 		} else{
-			$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner"></div>
-		 										<span id="form-submit-status">Loading...</span>`);
+			
+			if($("#form-submit-status").text().trim() != "Submitting..."){
+				$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner"></div>
+		 										<span id="form-submit-status">Submitting...</span>`);	
+			}
+			
+			
 			return true
 		}
 
@@ -812,71 +858,104 @@
 		console.log("Valid")
 		missingValues.push("Please Enter a Valid Email")
 		$("#email").css("border","1px solid red")
-		// alert("Invalid email address!");
-		// document.form1.text1.focus();
 	return false;
 
 }
 }
 	function validatePhone(input){
-
-		// let validPhoneRegex = /^[6-9]\d{9}$/
-
-		// if (input.match(validPhoneRegex)) {
-		// return true;
-		// } else {
-		// return false;
-		// }
-		return true
+		let validPhoneRegex = /(\+91[\-\s]?)?[0]?(91)?[789]\d{9}/g
+		/* 
+		THIS REGEX WILL MATCH THE FOLLOWING
+			8880344456
+			+918880344456
+			+91 8880344456
+			+91-8880344456
+			08880344456
+			918880344456
+		*/
+		
+		console.log("input",input)
+		if (input.match(validPhoneRegex)) {
+			
+		return true;
+		} else {
+			missingValues.push("Please Enter a Valid Indian Phone Number")
+		return false;
+		}
+		
 	}
-	function validatePincode(input){
+	function validatePincode(input, validationType){
 		console.log(input)
 		if(input.length != 6){
 			$("#pincode").css("border","1px solid red")
+			missingValues.push("Please Enter a Valid Pincode")
 			return false
 		} else{
 			$("#pincode").css("border","0px")
 			 return true
 			}
 	}
-
 	// remove red border when content is changed 
 	$("#custom-pc-form").change(function(){
-		// first page
-		processor = $('#processor').val()
-		ram = $('#ram').val()
-		hdd = $("#hdd").val()
-		graphics = $("input[name='Radio1']:checked").val();
-		cores = $("input[name='Radio4']:checked").val();
-		purpose = $("input[name='Radio']:checked").val();
-		// second page 
-		fname = $('#firstname').val()
-		pincode = $('#pincode').val()
-		phone = $('#international_PhoneNumber_countrycode').val()
-		email = $('#email').val()
 		
-		if (processor != "") {
-			$("#processor").css("border","0px")
-		} if(ram != "") {
-			$("#ram").css("border","0px")
-		} if(hdd != "" ){
-			$("#hdd").css("border","0px")
-		} if(purpose != undefined ){
-			$("#purpose").siblings().css("color","black")
-		} if(graphics != undefined){
-			$("#graphicsCardRadio").siblings().css("color","black")	
-		} if(cores != undefined){
-			$("#cores").siblings().css("color","black")	
-		} if(fname != ""){
-			$("#firstname").css("border","0px")
-		} if(pincode != ""){
-			$("#pincode").css("border","0px")
-		} if(phone != ""){
-			$("#international_PhoneNumber_countrycode").css("border","0px")
-		} if(email != ""){
-			$("#email").css("border","0px")
-		}
+		errorStyling("firstpage","text","removestyle")
+		errorStyling("firstpage","radio","removestyle")
+		errorStyling("secondpage","text","removestyle")
 	}); 
+oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+	function validatePincodeNumber(event){
+	
+	 
+	}
+	var inputQuantity = [];
+    function validateNumberFields(event) {    
+		console.log("Event") 
+      $(`#${event.target.id}`).on("keyup", function (e) {
+		
+        var $field = $(this),
+            val=this.value,
+            $thisIndex=parseInt($field.data("idx"),10); 
+        if (this.validity.badInput || isNaN(val) || $field.is(":invalid") ) {
+			
+			
+            // this.value = inputQuantity[$thisIndex];
+			
+			if(this.validity.badInput ){
+				this.value = inputQuantity[$thisIndex];
+			} else{
+				this.value = ""
+			}			
+            return;
+        } 
+		
+        if (val.length > Number($field.attr("maxlength"))) {
+			
+          val=val.slice(0, event.target.maxLength);
+		  
+          $field.val(val);
+        }
+		// console.log(event.which)
+		
+        inputQuantity[$thisIndex]=val;
+      });      
+    };
+
+	function showGoshawkModal(){
+		var modal = document.getElementById("myModal");
+		var btn = document.getElementById("myBtn");
+		var span = document.getElementsByClassName("close")[0];
+		$("#customModalContent").css("display","none")
+		span.onclick = function () {
+			// $('#myModal').css("display", "none")
+			modal.style.display = "none";
+		}
+		modal.style.display = "block";
+		window.onclick = function (event) {
+				if (event.target == modal) {
+					$('#myModal').css("display", "none")
+				}
+			}
+	}
 </script>
 
 </html>
