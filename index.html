@@ -497,7 +497,7 @@
 			</div>
 			<span id="form-submit-status">Submitting...</span>
 		</div>
-		<div class="goshawk-modal-content">
+		<div class="goshawk-modal-content" id="goshawkModalContent">
 			<!-- <span class="close">&times;</span> -->
 			<div>
 				<span id="form-submit-status"></span>
@@ -677,6 +677,8 @@
 		secondpage : {}
 	}
 	$('#submit-button').on('click', function (e) {
+		$("#goshawkModalContent").css("display", "none");
+		
 		var modal = document.getElementById("myModal");
 		var btn = document.getElementById("myBtn");
 		var span = document.getElementsByClassName("close")[0];
@@ -687,8 +689,10 @@
 		e.preventDefault();
 		if (e.target.type == "button") {
 			if(validateFirstPage()){
+
 				hideSpecifications()
 			} else{
+				$("#customModalContent").css("display","block")
 				$("#form-submit-spinner").css("display", "none");
 				modal.style.display = "block";
 				missingValuesHtml = '<ul>'
@@ -702,7 +706,7 @@
 				$("#form-submit-status").html(`<h6>PLEASE FILL ALL THE DETAILS</h6><br>${missingValuesHtml}`);	
 			}
 		} else {
-
+			$("#customModalContent").css("display","block")
 			modal.style.display = "block";
 			// When the user clicks anywhere outside of the modal, close it
 			window.onclick = function (event) {
@@ -944,6 +948,7 @@ oninput="this.value=this.value.replace(/[^0-9]/g,'');"
 		var modal = document.getElementById("myModal");
 		var btn = document.getElementById("myBtn");
 		var span = document.getElementsByClassName("close")[0];
+		$("#goshawkModalContent").css("display", "block");
 		$("#customModalContent").css("display","none")
 		span.onclick = function () {
 			// $('#myModal').css("display", "none")
