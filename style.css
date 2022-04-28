@@ -46,13 +46,10 @@
     align-items: center;
     flex-wrap: wrap;
     margin:  auto auto;
-    
-    
-
     background: rgba(255, 255, 255, 0.8);
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
     border-radius: 50px;
-    
+    animation: showModal 4s;
   }
   .goshawk-modal :nth-child(3) {  
     
@@ -120,10 +117,17 @@ background: rgba(11, 222, 121, 0.3);
     color: #aaaaaa;
     float: right;
     font-weight: bold;
+    font-size: 50px;
+  }
+  .outerClose {
+   display: none;
   }
   
   .close:hover,
-  .close:focus {
+  .close:focus,
+  .outerClose:hover,
+  .outerClose:focus
+   {
     color: #000;
     text-decoration: none;
     cursor: pointer;
@@ -724,6 +728,17 @@ header h1{
 }
  @media (max-width: 765px) {
     /* PHONE  */
+    .outerClose {
+        display: block;
+        position: absolute;
+        top: 0%;
+        right: 1%;
+      color: black;
+      float: right;
+      font-weight: bold;
+      font-size: 50px;
+    }
+
     .custom-modal-content{
         width: 75%;
       }
@@ -1000,4 +1015,8 @@ content: "\2022";
   }
  }
  
-
+ @keyframes showModal {
+    from {opacity: 0%,}
+    to {opacity: 100%;}
+  }
+ 

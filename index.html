@@ -107,7 +107,7 @@
 				</div>
 				<span id="form-submit-status">Submitting...</span>
 			</div>
-			<span class="close">&times;</span>
+			<span class="outerClose">&times;</span>
 			<div class="goshawk-modal goshawk-modal-columns" id="goshawkModal">
 				
 				<div class = "goshawk-modal-header-left">
@@ -596,6 +596,15 @@
 	let missingValuesHtml;
 	let flag = false
 	let processor, ram, hdd, graphics, cores, purpose, fname, pincode, phone, email;
+	var span = document.getElementsByClassName("close")[0];
+		span.onclick = function () {
+			console.log("span")
+			document.getElementById("myModal").style.display = "none";
+		}
+	var closeAboutUs = document.getElementsByClassName("outerClose")[0];
+	closeAboutUs.onclick = function () {
+			document.getElementById("myModal").style.display = "none";
+		}
 	function hidePersonalDetails() {
 
 
@@ -694,11 +703,7 @@
 		
 		var modal = document.getElementById("myModal");
 		var btn = document.getElementById("myBtn");
-		var span = document.getElementsByClassName("close")[0];
-		span.onclick = function () {
-			// $('#myModal').css("display", "none")
-			modal.style.display = "none";
-		}
+		
 		e.preventDefault();
 		if (e.target.type == "button") {
 			if(validateFirstPage()){
