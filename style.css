@@ -1,19 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 
+
 /* MODAL */
 .custom-modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 50px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+    /* filter: blur(40px); */
+    background: url("./modal_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   
   /* Modal Content */
@@ -28,21 +33,86 @@
     width: 20%;
     
   }
-  .goshawk-modal-content{
+  .goshawk-modal{
     background-color: #fefefe;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 75%;
+    
+    height: auto;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin:  auto auto;
+    
+    
+
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
     
   }
-  .goshawk-modal-content .subtitle{
-      font-size: 24px;
+  .goshawk-modal :nth-child(3) {  
+    
+background: rgba(11, 222, 121, 0.3);
+
+  }
+  .goshawk-modal :nth-child(4) {  
+  
+    background: rgba(222, 163, 11, 0.3);
+
+ 
+  }
+  .goshawk-modal :nth-child(5) {  
+    background: rgba(11, 184, 222, 0.3);
+  }
+  .goshawk-modal :nth-child(6) {  
+    background: rgba(11, 121, 222, 0.3);
+  }
+  .goshawk-modal :nth-child(7) {  
+    
+    background: rgba(222, 112, 11, 0.3); 
+  }
+  .goshawk-modal :nth-child(8) {  
+    background: rgba(222, 11, 214, 0.3); 
+  }
+  .goshawk-modal :nth-child(9) {  
+    background: rgba(15, 11, 222, 0.3);
+  }
+  .goshawk-modal :nth-child(10) {  
+    background: rgba(135, 70, 70, 0.3); 
+  }
+  .goshawk-modal .subtitle{
+      font-size: 20px;
       font-family: poppins;
+      font-weight: 700;
+  }
+  
+  .goshawk-modal-header-left{
+      /* position: absolute;  */
+      /* border: 2px solid red; */
+      padding-left: 50px;
+      width:70%;
+  }
+  .goshawk-modal-header-right{
+    /* border: 2px solid red; */
+    width:30%;
+}
+.goshawk-modal-header-right img{
+    float: right ;
+    width: 97px;
+    height: 110px;
+}
+.goshawk-modal-content{
+        width: 20%;
+        margin: 10px 15px;
+        border-radius: 20px;
+        padding: 20px;
+        height: 300px;
+        text-align: center;
+        /* flex-grow: 1; */
   }
   
   /* The Close Button */
@@ -533,6 +603,23 @@ line-height: 109.4%;
         font-size: 100px;
     }
  }
+@media (max-width: 1420px) {
+    .goshawk-modal-content{
+        width: 28%;
+        margin: 10px 15px;
+        border-radius: 20px;
+        padding: 15px;
+        height: 300px;
+        text-align: center;
+        /* flex-grow: 1; */
+  }
+  /* .goshawk-modal :nth-child(9) {  
+    width: 30%;
+  }
+  .goshawk-modal :nth-child(10) {  
+    width: 30%;
+  } */
+ }
  @media(max-width: 1200px){
      
     .custom-modal-content{
@@ -580,43 +667,60 @@ line-height: 109.4%;
     }
 
  }
+ @media (max-width: 1000px) {
+    .goshawk-modal{
+        width: 85%;
+      }
+ }
  
 @media (max-width: 950px) { 
     /* IPAD | TABLETS */
+    .goshawk-modal{
+        width: 90%;
+      }
+    .goshawk-modal-content{
+        width: 40%;
+        margin: 10px 15px;
+        border-radius: 20px;
+        padding: 15px;
+        height: 300px;
+        text-align: center;
+        /* flex-grow: 1; */
+  }
+
+
 .radio-parent-label{
     margin-left: 50px;
-}  
+    }  
 .radio-flex{
     margin-left: 50px;
     }
 .parent-requirements-component{
     margin-left: 50px;
-}
+    }
 
 .radio-div{
     padding-right: 20px;
     font-size: 16px;
-}
+    }
 
 .logo{
         width: 80px;
         height: 80px;
     }
-    header { 
+header { 
         height: 150px;
-      }
-    header h1{
+    }
+header h1{
         font-size: 38px;
     }
-
-    
 .header-title h1{
     font-size: 22px;
-}
+    }
 
 .header-title h1 b{
     font-size: 25px;
-}
+    }
     
 }
  @media (max-width: 765px) {
@@ -860,4 +964,28 @@ content: "\2022";
     }
 }
 
+@media (max-width: 600px) {
+    
+    .goshawk-modal-content{
+        
+    width: 45%;
+    margin: 10px 10px;
+    padding: 12px;
+  }
+ }
+
+ @media (max-width: 500px) {
+     /* ABOUT GOSHAWK MODAL PHONE */
+     .goshawk-modal{
+        width: 100%;
+      }
+
+    .goshawk-modal-content{
+        
+    width: 100%;
+    margin: 2px 10px;
+    padding: 12px;
+    height: auto;
+  }
+ }
 

@@ -21,9 +21,6 @@
 
 <body>
 
-
-
-
 	<header>
 		<div class="title">
 			<!-- <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="white" class="bi bi-journals"
@@ -90,7 +87,7 @@
 				</div>
 			</div>
 			<div class="header-rules">
-				<h2 id ="aboutGoshawk" onclick="showGoshawkModal()">About GosHawk &#x1F6C8;</h2>
+				<h2 id ="aboutGoshawk" style="width: 250px; " onclick="showGoshawkModal()">About GosHawk &#x1F6C8;</h2>
 				<ul>
 					<li>BUILT FOR THE FUTURE</li>
 					<li>RELIABLE PERFORMANCE</li>
@@ -99,8 +96,111 @@
 				</ul>
 			</div>
 		</div>
-
 	</div>
+		<!-- The Modal -->
+		<div id="myModal" class="custom-modal">
+
+			<!-- Modal content -->
+			<div class="custom-modal-content" id = "customModalContent">
+				<span class="close">&times;</span>
+				<div class="spinner-border text-success" role="status" id="form-submit-spinner">
+				</div>
+				<span id="form-submit-status">Submitting...</span>
+			</div>
+			<div class="goshawk-modal goshawk-modal-columns" id="goshawkModal">
+				<!-- <span class="close">&times;</span> -->
+				<div class = "goshawk-modal-header-left">
+					<h1 style="font-weight: 800;">About GosHawk</h1>
+				</div>
+				<div class = "goshawk-modal-header-right">
+					<img src="./Goshawk_transparent.png">
+				</div>
+					
+					<div class="goshawk-modal-content">
+						<h4 class = "subtitle">FUTURE READY</h4>
+						<div>
+							<p>
+								GOSHAWK PCs are readily upgradable to keep up with your evolving needs.
+							</p>
+						</div>
+					</div>
+					<div  class="goshawk-modal-content">
+						<h4 class = "subtitle">RELIABLE PERFORMANCE</h4>
+						<div>
+							<p>
+								GOSHAWK won’t let you down with its snappier 
+								system that offers reliable perfromance
+								at low power consumption.
+							</p>
+						</div>
+					</div>
+					<div class="goshawk-modal-content">
+						<h4 class = "subtitle">MULTITASK YOUR WAY</h4>
+						<div>
+							<p>
+								Get impressive boot times & performance for your day-to-day 
+								computing tasks with our GOSHAWK PCs.
+							</p>
+						</div>
+					</div>
+					<div class="goshawk-modal-content">
+						<h4 class = "subtitle">UNMATCHED EFFICIENCY</h4>
+						<div>
+							<p>
+								GOSHAWKs come with Active Power Factor
+								Correction that uses a specialized circuit to correct
+								power factor for overall increased efficiency.
+							</p>
+						</div>
+					</div>
+					<div class="goshawk-modal-content">
+						<h4 class = "subtitle">CRYSTAL CLEAR AUDIO</h4>
+						<div>
+							<p>
+								GOSHAWKs use industry’s leading audio codec along
+								with AI noise cancellation 
+								software suite* to reduce environmental noise.
+							</p>
+						</div>
+					</div>
+					<div class="goshawk-modal-content">
+						<h4 class = "subtitle">ENGINEERED, FORGED</h4>
+						<div>
+							<p>
+								GOSHAWKs'design philosophy helps in managing heat,
+								provides superior overclocking headroom 
+								and tested for peak performances.         
+							</p>
+						</div>
+					</div>
+					<div class="goshawk-modal-content">
+						<h4 class = "subtitle">STRESS TESTED</h4>
+						<div>
+							<p>
+								Each GOSHAWK PC is put through rigrous tests
+								on multiple hardware safeguards, and 90+ benchmark
+								evaluations to ensure PC is reliable and stable.
+							</p>
+						</div>
+					</div>
+					<div class="goshawk-modal-content">
+						<h4 class = "subtitle">QUALITY ASSURED</h4>
+						<div>
+							<p>
+								Our quality assurance specialists ensure that each GOSHAWK
+								observes robust quality standards.
+								<p style = "font-style: italic; font-size: 12px;">*AI noise cancellation 
+								suit is available with premium GOSHAWK configurations.</p>
+							</p>
+						</div>
+					</div>
+					
+					
+				
+				
+			</div>
+	
+		</div>
 
 	<!-- FORM STARTS HERE  -->
 	<div class="tablet-container">
@@ -487,92 +587,7 @@
 		</div>
 	</div>
 
-	<!-- The Modal -->
-	<div id="myModal" class="custom-modal">
 
-		<!-- Modal content -->
-		<div class="custom-modal-content" id = "customModalContent">
-			<span class="close">&times;</span>
-			<div class="spinner-border text-success" role="status" id="form-submit-spinner">
-			</div>
-			<span id="form-submit-status">Submitting...</span>
-		</div>
-		<div class="goshawk-modal-content" id="goshawkModalContent">
-			<!-- <span class="close">&times;</span> -->
-			<div>
-				<span id="form-submit-status"></span>
-				<div>
-					<h4 class = "subtitle">BUILT FOR THE FUTURE</h4>
-					<div>
-						<p>
-							GOSHAWK offers readily upgradable memory, storage, graphics card, and power supply to keep up with your evolving needs. Customization is at the heart of Goshawk PC 
-						</p>
-					</div>
-				</div>
-				<div>
-					<h4 class = "subtitle">RELIABLE PERFORMANCE  </h4>
-					<div>
-						<p>
-							Snappier systems, reliable storage, and low footprint power consumptions. GOSHAWK won’t let you down. 
-						</p>
-					</div>
-				</div>
-				<div>
-					<h4 class = "subtitle">MULTITASK YOUR WAY TO SUCCESS</h4>
-					<div>
-						<p>
-							Get impressive boot times & performance for your day-to-day computing tasks with our GOSHAWK. 
-						</p>
-					</div>
-				</div>
-				<div>
-					<h4 class = "subtitle">UNMATCHED EFFICIENCY</h4>
-					<div>
-						<p>
-							GOSHAWK have Active Power Factor Correction that uses a specialized circuit to correct power factor, leading in increased overall efficiency output.
-						</p>
-					</div>
-				</div>
-				<div>
-					<h4 class = "subtitle">CRYSTAL CLEAR AUDIO</h4>
-					<div>
-						<p>
-							GOSHAWK uses industry’s leading audio codec along with AI noise cancellation software suit*, blocking all the environmental noise and disturbance. 
-						</p>
-					</div>
-				</div>
-				<div>
-					<h4 class = "subtitle">DESIGNED FOR HIGH-PERFORMANCE OVERCLOCKING</h4>
-					<div>
-						<p>
-							GOSHAWK design philosophy helps in managing heat and provides superior overclocking headroom. Each component is individually screened for peak performance.  
-						</p>
-					</div>
-				</div>
-				<div>
-					<h4 class = "subtitle">STRESS TESTED</h4>
-					<div>
-						<p>
-							We put each GOSHAWK through a battery of 90+ test to ensure you reliable PC and system stability. Your Goshawk has Multiple hardware safeguards for all-round protection.
-						</p>
-					</div>
-				</div>
-				<div>
-					<h4 class = "subtitle">QUALITY ASSURED</h4>
-					<div>
-						<p>
-							Our quality assurance specialists ensure that each GOSHAWK observes robust quality standards.  
-							*AI noise cancellation suit is available with premium GOSHAWK configurations.
-						</p>
-					</div>
-				</div>
-				
-				
-			</div>
-			
-		</div>
-
-	</div>
 </body>
 
 <script>
@@ -677,7 +692,8 @@
 		secondpage : {}
 	}
 	$('#submit-button').on('click', function (e) {
-		$("#goshawkModalContent").css("display", "none");
+		$("#goshawkModal").css("display", "none"); 
+		
 		
 		var modal = document.getElementById("myModal");
 		var btn = document.getElementById("myBtn");
@@ -948,19 +964,25 @@ oninput="this.value=this.value.replace(/[^0-9]/g,'');"
 		var modal = document.getElementById("myModal");
 		var btn = document.getElementById("myBtn");
 		var span = document.getElementsByClassName("close")[0];
-		$("#goshawkModalContent").css("display", "block");
+		$("#goshawkModal").css("display", "flex");
+		$("body").css("overflow", "hidden");
 		$("#customModalContent").css("display","none")
 		span.onclick = function () {
 			// $('#myModal').css("display", "none")
+			
 			modal.style.display = "none";
+			$("body").css("overflow", "auto");
 		}
 		modal.style.display = "block";
 		window.onclick = function (event) {
 				if (event.target == modal) {
 					$('#myModal').css("display", "none")
+					$("body").css("overflow", "auto");
 				}
 			}
 	}
+
+	showGoshawkModal() // TODO REMOVE THIS
 </script>
 
 </html>
