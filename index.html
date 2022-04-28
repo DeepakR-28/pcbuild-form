@@ -107,8 +107,9 @@
 				</div>
 				<span id="form-submit-status">Submitting...</span>
 			</div>
+			<span class="close">&times;</span>
 			<div class="goshawk-modal goshawk-modal-columns" id="goshawkModal">
-				<!-- <span class="close">&times;</span> -->
+				
 				<div class = "goshawk-modal-header-left">
 					<h1 style="font-weight: 800;">About GosHawk</h1>
 				</div>
@@ -193,11 +194,7 @@
 								suit is available with premium GOSHAWK configurations.</p>
 							</p>
 						</div>
-					</div>
-					
-					
-				
-				
+					</div>				
 			</div>
 	
 		</div>
@@ -983,6 +980,30 @@ oninput="this.value=this.value.replace(/[^0-9]/g,'');"
 	}
 
 	showGoshawkModal() // TODO REMOVE THIS
+	// $(".goshawk-modal-content").on("click" = function(){
+	// 	console.log(clicked)
+	// })
+	let previousClickedElement = []
+	
+	$( ".goshawk-modal-content" ).on( "click", function() {
+		
+		if(previousClickedElement.length==0){
+			$( this ).children()[1].style.display = "block"
+			previousClickedElement.push($( this ))
+			
+		} else{
+			
+			previousClickedElement[0].children()[1].style.display = ""
+			previousClickedElement.pop()
+			previousClickedElement.push($( this ))
+
+			$( this ).children()[1].classList.add("show-goshawk-modal-content")
+			$( this ).children()[1].style.display = "block"
+		}
+		
+		
+  		
+});
 </script>
 
 </html>

@@ -119,7 +119,6 @@ background: rgba(11, 222, 121, 0.3);
   .close {
     color: #aaaaaa;
     float: right;
-    font-size: 28px;
     font-weight: bold;
   }
   
@@ -981,11 +980,24 @@ content: "\2022";
       }
 
     .goshawk-modal-content{
-        
+    cursor: pointer;     
     width: 100%;
     margin: 2px 10px;
     padding: 12px;
     height: auto;
   }
+  .goshawk-modal-content div{
+    display: none;
+  }
+  .show-goshawk-modal-content{
+    display: block;
+    transition:all 1s ease-out;
+    animation: showContent 1s;
+  }
+  @keyframes showContent {
+    from {opacity: 0%,}
+    to {opacity: 100%;}
+  }
  }
+ 
 
