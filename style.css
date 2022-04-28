@@ -13,10 +13,10 @@
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
+    
     background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
     /* filter: blur(40px); */
-    background: url("./modal_bg.png");
+    /* background: url("./modal_bg.png"); */
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -729,15 +729,15 @@ header h1{
  @media (max-width: 765px) {
     /* PHONE  */
     .outerClose {
-        display: block;
-        position: absolute;
-        top: 0%;
-        right: 5%;
-      color: black;
-      float: right;
-      font-weight: bold;
-      font-size: 50px;
-    }
+    display: block;
+    position: absolute;
+    top: 0%;
+    right: 5%;
+    color: black;
+    float: right;
+    font-weight: bold;
+    font-size: 50px;
+}
 
     .custom-modal-content{
         width: 75%;

@@ -602,8 +602,11 @@
 			document.getElementById("myModal").style.display = "none";
 		}
 	var closeAboutUs = document.getElementsByClassName("outerClose")[0];
+	let aboutUsModal = document.getElementById("myModal")
 	closeAboutUs.onclick = function () {
 			$("body").css("overflow", "auto");
+			aboutUsModal.style.background = "none"
+			aboutUsModal.style["background-color"] = 'rgba(0,0,0,0.8)'
 			document.getElementById("myModal").style.display = "none";
 		}
 	function hidePersonalDetails() {
@@ -966,20 +969,18 @@ oninput="this.value=this.value.replace(/[^0-9]/g,'');"
 	function showGoshawkModal(){
 		var modal = document.getElementById("myModal");
 		var btn = document.getElementById("myBtn");
-		var span = document.getElementsByClassName("close")[0];
 		$("#goshawkModal").css("display", "flex");
 		$("body").css("overflow", "hidden");
 		$("#customModalContent").css("display","none")
-		span.onclick = function () {
-			// $('#myModal').css("display", "none")
-			
-			modal.style.display = "none";
-			$("body").css("overflow", "auto");
-		}
+		
 		modal.style.display = "block";
+		modal.style.background = 'url("./modal_bg.png")'
+		console.log(modal)
 		window.onclick = function (event) {
 				if (event.target == modal) {
 					$('#myModal').css("display", "none")
+					modal.style.background = "none"
+					modal.style["background-color"] = 'rgba(0,0,0,0.8)'
 					$("body").css("overflow", "auto");
 				}
 			}
