@@ -603,6 +603,7 @@
 		}
 	var closeAboutUs = document.getElementsByClassName("outerClose")[0];
 	closeAboutUs.onclick = function () {
+			$("body").css("overflow", "auto");
 			document.getElementById("myModal").style.display = "none";
 		}
 	function hidePersonalDetails() {
