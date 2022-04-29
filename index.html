@@ -997,6 +997,7 @@ oninput="this.value=this.value.replace(/[^0-9]/g,'');"
 	$( ".goshawk-modal-content" ).on( "click", function() {
 		
 		if(previousClickedElement.length==0){
+			$( this ).children()[1].classList.add("show-goshawk-modal-content")
 			$( this ).children()[1].style.display = "block"
 			previousClickedElement.push($( this ))
 			
@@ -1010,6 +1011,12 @@ oninput="this.value=this.value.replace(/[^0-9]/g,'');"
 			$( this ).children()[1].style.display = "block"
 		}
 });
+$(document).on('keydown', function(event) {
+       if (event.key == "Escape") {
+		$("#myModal").css("display", "none")
+		$("body").css("overflow", "auto");
+       }
+   });
 </script>
 
 </html>
