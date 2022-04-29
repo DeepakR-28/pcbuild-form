@@ -90,8 +90,9 @@ background: rgba(11, 222, 121, 0.3);
   .goshawk-modal-header-left{
       /* position: absolute;  */
       /* border: 2px solid red; */
-      padding-left: 50px;
-      width:70%;
+      /* padding-left: 50px; */
+      width:56%;
+      margin-left: 15px;
   }
   .goshawk-modal-header-right{
     /* border: 2px solid red; */
@@ -117,7 +118,11 @@ background: rgba(11, 222, 121, 0.3);
     color: #aaaaaa;
     float: right;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 40px;
+    position: absolute;
+    right: 5%;
+    top: 0%;
+    
   }
   .outerClose {
    display: none;

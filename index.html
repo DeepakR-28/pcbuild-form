@@ -725,7 +725,7 @@
 						}); 
 				}
 				missingValuesHtml += '</ul>';
-				$("#form-submit-status").html(`<h6>PLEASE FILL ALL THE DETAILS</h6><br>${missingValuesHtml}`);	
+				$("#form-submit-status").html(`<h6 style ="padding-top:20px">PLEASE FILL ALL THE DETAILS</h6><br>${missingValuesHtml}`);	
 			}
 		} else {
 			$("#customModalContent").css("display","block")
@@ -975,6 +975,8 @@ oninput="this.value=this.value.replace(/[^0-9]/g,'');"
 		
 		modal.style.display = "block";
 		modal.style.background = 'url("./modal_bg.png")'
+		modal.style["background-repeat"] = 'no-repeat'
+		modal.style["background-size"] = 'cover'
 		console.log(modal)
 		window.onclick = function (event) {
 				if (event.target == modal) {
