@@ -28,7 +28,7 @@
 			<span class="close">&times;</span>
 			<div class="spinner-border text-success" role="status" id="form-submit-spinner">
 			</div>
-			<span id="form-submit-status">Submitting...</span>
+			<span id="form-submit-status"class="spinnerClass">Submitting...</span>
 		</div>
 		<span class="outerClose">&times;</span>
 		<div class="goshawk-modal goshawk-modal-columns" id="goshawkModal">
@@ -204,6 +204,9 @@
 			
 	
 		<!-- FORM STARTS HERE  -->
+		<div class ="cabinetImage">
+			<img src="https://cdn.shopify.com/s/files/1/0311/6263/0189/t/20/assets/cabinet.png?v=1651683878" alt="">
+		</div>
 		<div class="tablet-container">
 			<div class="tablet" id="tablet">
 	
@@ -230,7 +233,7 @@
 							<!-- PC REQUIREMENTS CONTAINER -->
 							<div class="col-md-4">
 								<label for="validationCustom01" class="radio-parent-label">Number of PC's required</label>
-								<div><input id="count" class="form-control radio-parent-label" style="height: 40px;"type="text" name="Number" value="" maxlength="18" placeholder="" fieldType=7 placeholder="" required></div>
+								<div><input id="count" class="form-control radio-parent-label" style="height: 40px; width:50%"type="text" name="Number" value="" maxlength="2" onkeypress="validateNumberFields(event)" placeholder="" fieldType=7 placeholder="" required></div>
 								
 								<br>
 							</div>
@@ -417,7 +420,7 @@
 									<!--Dropdown-->
 									<label class="custom-form-label p-1">SSD Size (fast storage)
 									</label>
-									<select class="form-select" id="form-select" name="Dropdown4">
+									<select class="form-select" id="ssd" name="Dropdown4">
 										<option selected="true" value="">-Select-</option>
 										<option value="120&#x20;GB">120 GB</option>
 										<option value="256&#x20;GB">256 GB</option>
@@ -469,7 +472,7 @@
 									<label class="custom-form-label p-1">Load licensed copy of Windows 10
 										
 									</label>
-									<select class="form-select" id="windowsCopy" name="Dropdown6">
+									<select class="form-select w-100" id="windowsCopy" name="Dropdown6">
 										<option selected="true" value="">-Select-</option>
 										<option value="Yes&#x20;-&#x20;Windows&#x20;10&#x20;Home">Yes - Windows 10 Home
 										</option>
@@ -697,9 +700,9 @@
 		},
 		secondpage : {
 			firstname: "Valid First Name",
-			// pincode: "Valid Pincode",
-			// international_PhoneNumber_countrycode: "Valid Phone Number",
-			// email: "Valid Email Id"
+			pincode: "Valid Pincode",
+			international_PhoneNumber_countrycode: "Valid Phone Number",
+			email: "Valid Email Id"
 		}
 	}
 	let mandatoryRadioButtonHashMap = {
@@ -734,7 +737,7 @@
 						}); 
 				}
 				missingValuesHtml += '</ul>';
-				$("#form-submit-status").html(`<h6 style ="padding-top:20px">Please fill required details</h6><br>${missingValuesHtml}`);	
+				$("#form-submit-status").html(`<p style ="padding-top:20px font-family:poppins;">Please fill required details</p>${missingValuesHtml}`);	
 			}
 		} else {
 			$("#customModalContent").css("display","block")
@@ -748,10 +751,10 @@
 			if (Check()) {
 				setTimeout(() => {
 					$("#form-submit-spinner").css("display", "none");
-					$("#form-submit-status").html("<h6>Thank you! Your request has been submitted. We will reach out to you shortly.</h6><br>You will be now redirected to home page...");
+					$("#form-submit-status").html("<p>Thank you! Your request has been submitted. We will reach out to you shortly.</p><br>You will be now redirected to home page..."); // TODO UNCOMMNET ME
 					console.log($("#submit-button"))
 					// $("#exampleModalCenter").modal('hide');
-					$("#custom-pc-form").submit()
+					// $("#custom-pc-form").submit()
 				}, 2000)
 			} else {
 				// window.alert("Please fill required details")
@@ -764,7 +767,7 @@
 						}); 
 				}
 				missingValuesHtml += '</ul>';
-				$("#form-submit-status").html(`<h6>Please fill required details</h6><br>${missingValuesHtml}`);	
+				$("#form-submit-status").html(`<p>Please fill required details</p><br>${missingValuesHtml}`);	
 			}
 		}
 	})
@@ -779,6 +782,7 @@
 	}
 
 	function errorStyling(pageNumber, inputType, operation){
+		console.log("change")
 
 		// This Function will either add a style or remove a style
 		/*
@@ -808,7 +812,11 @@
 					if ($(`#${elementId}`).val() == "") {
 						flag = true
 						$(`#${elementId}`).css("border","1px solid red")
-						missingValues.push(mandatoryTextFieldsHashmap[pageNumber][elementId])
+						if(elementId=="firstname" || pageNumber == "firstpage"){
+							// because we are pushing email, pincode and phone number in their validation functions
+							missingValues.push(mandatoryTextFieldsHashmap[pageNumber][elementId])
+						}
+						
 					} 
 				})
 			} else {
@@ -824,6 +832,8 @@
 
 			if(inputType == "text"){
 				Object.keys(mandatoryTextFieldsHashmap[pageNumber]).map(elementId =>{
+
+					console.log("ele",elementId)
 					if ($(`#${elementId}`).val() != "") {
 						$(`#${elementId}`).css("border","0px")
 					} 
@@ -855,7 +865,7 @@
 		} else{
 			if($("#form-submit-status").text().trim() != "Submitting..."){
 				$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner"></div>
-		 										<span id="form-submit-status">Submitting...</span>`);	
+		 										<span id="form-submit-status"class="spinnerClass">Submitting...</span>`);	
 			}
 			return true
 		}
@@ -878,7 +888,7 @@
 			
 			if($("#form-submit-status").text().trim() != "Submitting..."){
 				$("#form-submit-status").html(`<div class="spinner-border text-success" role="status" id="form-submit-spinner"></div>
-		 										<span id="form-submit-status">Submitting...</span>`);	
+		 										<span id="form-submit-status"class="spinnerClass">Submitting...</span>`);	
 			}
 			
 			
@@ -936,7 +946,7 @@
 	}
 	// remove red border when content is changed 
 	$("#custom-pc-form").change(function(){
-		
+		console.log("change")
 		errorStyling("firstpage","text","removestyle")
 		errorStyling("firstpage","radio","removestyle")
 		errorStyling("secondpage","text","removestyle")
@@ -945,7 +955,7 @@ oninput="this.value=this.value.replace(/[^0-9]/g,'');"
 
 	var inputQuantity = [];
     function validateNumberFields(event) {    
-		console.log("Event") 
+		
       $(`#${event.target.id}`).on("keyup", function (e) {
 		
         var $field = $(this),
@@ -1001,7 +1011,7 @@ oninput="this.value=this.value.replace(/[^0-9]/g,'');"
 			}
 	}
 
-	showGoshawkModal() // TODO REMOVE THIS
+	// showGoshawkModal() // TODO REMOVE THIS
 	// $(".goshawk-modal-content").on("click" = function(){
 	// 	console.log(clicked)
 	// })

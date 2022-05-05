@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-
+*{
+    text-transform:none;
+}
+option{
+    font-family:sans-serif;
+    font-weight:300;
+    
+}
 .blurOverlay{
     position: relative;
     width: 100%;
@@ -26,6 +33,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     animation: showModalBackdrop 0.5s ;
+    
   }
   
   /* Modal Content */
@@ -35,10 +43,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    padding: 20px;
+    padding: 25px 20px 20px 20px;
     border: 1px solid #888;
     width: 20%;
-    
+    border-radius: 20px;
   }
   .goshawk-modal{
     background-color: #fefefe;
@@ -129,7 +137,7 @@ background: rgba(11, 222, 121, 0.3);
     font-weight: bold;
     font-size: 40px;
     position: absolute;
-    right: 5%;
+    right: 3%;
     top: 0%;
     
   }
@@ -374,6 +382,12 @@ header {
     width: 1500px;
 
 }
+.cabinetImage{
+    position: absolute;
+    left: 900px;
+    top: 800px;
+    z-index: -1;
+}
 .tablet{
     /* border: 2px solid blue; */
     /* 
@@ -385,25 +399,6 @@ header {
     margin-top: 10%;
     width: 993px;
     height: 800px;
-    
-    
-    /* width: 980px; */
-
-    /* position: absolute; */
-    /* position: inherit;
-    width: 1200px;
-    height: auto;
-    margin-left: 90px;
-    margin-top:5%;
-
-    
-    border: 2px solid red;
-    border-radius: .8em;
-    display: inline-block; */
-    /* outline: 29px solid black;
-    box-shadow: 0 0 0 35px #ECECEC; */
-    
-
     color: #000000;
 }
 
@@ -445,7 +440,7 @@ header {
 form{
     margin-top: 5%;
 }
-#form-select, #processor, #ram, #hdd, #budget, #windowsCopy{
+#form-select, #processor, #ram, #hdd, #ssd, #budget, #windowsCopy{
     width: 50%;
     border:0px;
     outline:0px;
@@ -514,7 +509,7 @@ line-height: 109.4%;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 1rem;
     line-height: 109.4%;
 }
 
@@ -638,7 +633,9 @@ line-height: 109.4%;
   } */
  }
  @media(max-width: 1200px){
-     
+     .cabinetImage{
+         display: none;
+     }
     .custom-modal-content{
         top: 60%;
         width: 30%;
@@ -795,6 +792,11 @@ header h1{
     
     /* border: 2px solid red; */
 }
+#ssd, #processor, #usage  {
+    /* width: 50%;
+    border:0px;
+    outline:0px; */
+}
 /* YOU WANT IT JUST SAY IT COMPONENT  */
 
 .rectangle-container{
@@ -929,7 +931,7 @@ content: "\2022";
 
     /* PERSONAL DETAILS */
 
-#form-select, #processor{
+#form-select, #processor, #ram, #hdd, #budget, #ssd{
     width: 100%;
     float: right;
     border:0px;
@@ -1053,4 +1055,18 @@ content: "\2022";
         opacity: 100%;
     }
   }
- 
+ .spinnerClass{
+    /* font-size: 30px; */
+    margin-left: 8%;
+
+ }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
